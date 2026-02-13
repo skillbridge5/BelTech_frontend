@@ -20,6 +20,7 @@ import eyoha from "./../assets/clientLogo/eyoha.png";
 import Roha from "./../assets/clientLogo/RohaCake.png";
 import SkillsBridge from "./../assets/clientLogo/skillBridge.png";
 import diligent from "./../assets/clientLogo/diligent.png";
+import firma from "./../assets/clientLogo/firma.jpg";
 import above_the_footer from "./../assets/above_the_footer.png";
 import beltechImpact from "./../assets/homepage/beltechImpact.png";
 import businessOperationsImg from "./../assets/homepage/business-operations.png";
@@ -61,14 +62,12 @@ const BusinessOperations = () => {
         <div className="text-center mb-14">
           <h2
             className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
-            style={{ fontFamily: "Inter" }}
           >
             Business Operations We{" "}
             <span className="text-[#27A2D8]">Transform</span>
           </h2>
           <p
             className="text-xl font-normal text-black max-w-3xl mx-auto"
-            style={{ fontFamily: "Inter" }}
           >
             Streamline your business processes with our comprehensive suite of
             operational tools designed for modern enterprises.
@@ -973,6 +972,7 @@ const Homepage: React.FC = () => {
                   { name: "Roha Cake and Bread Bakery", img: Roha, testimonial: "Roha Bakery saw amazing growth with our product." },
                   { name: "SkillBridge Institute of Technology", img: SkillsBridge, testimonial: "SkillBridge praises the website we built." },
                   { name: "Diligent Trade Solutions", img: diligent, testimonial: "Diligent Trade saw great results from our ERP." },
+                  { name: "Firma media and communications", img: firma, testimonial: "Odoo ERP Enterprise - Finance ,Sales, Project" },
                 ]
                   // Duplicate twice for a continuous flow
                   .concat([
@@ -980,6 +980,7 @@ const Homepage: React.FC = () => {
                     { name: "Roha Cake and Bread Bakery", img: Roha, testimonial: "Roha Bakery saw amazing growth with our product." },
                     { name: "SkillBridge Institute of Technology", img: SkillsBridge, testimonial: "SkillBridge praises the website we built." },
                     { name: "Diligent Trade Solutions", img: diligent, testimonial: "Diligent Trade saw great results from our ERP." },
+                    { name: "Firma media and communications", img: firma, testimonial: "Odoo ERP Enterprise - Finance, Sales, Project" },
                   ])
 
                   .concat([
@@ -987,6 +988,7 @@ const Homepage: React.FC = () => {
                     { name: "Roha Cake and Bread Bakery", img: Roha, testimonial: "Roha Bakery saw amazing growth with our product." },
                     { name: "SkillBridge Institute of Technology", img: SkillsBridge, testimonial: "SkillBridge praises the website we built." },
                     { name: "Diligent Trade Solutions", img: diligent, testimonial: "Diligent Trade saw great results from our ERP." },
+                    { name: "Firma media and communications", img: firma, testimonial: "Odoo ERP Enterprise - Finance, Sales, Project" },
                   ])
 
                   .map((client, idx) => (
