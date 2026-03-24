@@ -28,6 +28,8 @@ import market from "../../src/assets/in/market.png";
 import importexport from "../../src/assets/in/import.png";
 import acc from "../../src/assets/in/acc.png";
 import hos from "../../src/assets/in/hospital.png";
+import erpnextImg from "./../assets/homepage/erpnext.png";
+import erpProcessImg from "./../assets/homepage/erp-process.png";
 import {
   Tooltip,
   TooltipContent,
@@ -395,7 +397,185 @@ const IndustriesCarousel: React.FC<{ industries: typeof industries }> = ({ indus
     </div>
   );
 };
+const ERPNextOverview = () => {
+  const features = [
+    {
+      title: "All-in-One Business Management",
+      desc: "Manage sales, inventory, accounting, HR, and operations from a single ERPNext platform.",
+      icon: <Layers className="w-5 h-5 text-[#27A2D8]" />,
+    },
+    {
+      title: "User-Friendly Interface",
+      desc: "Simple, intuitive UI that allows teams to work efficiently with minimal training.",
+      icon: <Users className="w-5 h-5 text-[#27A2D8]" />,
+    },
+    {
+      title: "Modular ERP System",
+      desc: "Start small and scale by adding modules as your business grows.",
+      icon: <Boxes className="w-5 h-5 text-[#27A2D8]" />,
+    },
+    {
+      title: "Real-Time Analytics",
+      desc: "Get instant insights with dashboards, reports, and business intelligence tools.",
+      icon: <BarChart3 className="w-5 h-5 text-[#27A2D8]" />,
+    },
+  ];
 
+  return (
+    <section className="py-20 bg-[#F4F8FB] relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <span className="text-[#27A2D8]">ERPNext</span> Overview
+          </h2>
+          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+            Transform your operations with intelligent ERPNext solutions designed
+            for modern businesses. Streamline your operations in one unified platform.
+          </p>
+        </div>
+
+        {/* Content */}
+        <div className="flex flex-col lg:flex-row items-center gap-12">
+          
+          {/* Left Image */}
+          <div className="w-full lg:w-1/2">
+            <motion.img
+              src={erpnextImg} // replace with your actual image
+              alt="ERPNext Overview"
+              className="w-full h-auto object-contain rounded-2xl"
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+            />
+          </div>
+
+          {/* Right Features */}
+          <div className="w-full lg:w-1/2 space-y-4">
+            {features.map((item, idx) => (
+              <motion.div
+                key={idx}
+                className="flex items-start gap-4 p-5 bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300"
+                initial={{ opacity: 0, x: 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: idx * 0.1 }}
+              >
+                <div className="w-10 h-10 flex items-center justify-center bg-[#E8F4FB] rounded-lg">
+                  {item.icon}
+                </div>
+
+                <div>
+                  <h4 className="font-semibold text-gray-900 text-base">
+                    {item.title}
+                  </h4>
+                  <p className="text-gray-600 text-sm mt-1">
+                    {item.desc}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+};
+const ERPImplementationApproach = () => {
+  const steps = [
+    {
+      title: "Requirement Analysis",
+      desc: "Understand your business processes, challenges, and goals to create a strategic roadmap.",
+    },
+    {
+      title: "System Design & Planning",
+      desc: "Design ERP structure, modules, and workflows tailored specifically to your business needs.",
+    },
+    {
+      title: "Customization & Integration",
+      desc: "Develop custom features and seamlessly integrate with your existing software ecosystem.",
+    },
+    {
+      title: "ERP Implementation",
+      desc: "Configure core modules like Accounting, HR, Inventory, CRM, and Manufacturing.",
+    },
+    {
+      title: "Testing & Training",
+      desc: "Ensure system reliability through rigorous testing and train your team for smooth adoption.",
+    },
+    {
+      title: "Deployment & Support",
+      desc: "Go live with confidence, backed by continuous monitoring, updates, and support.",
+    },
+  ];
+
+  return (
+    <section className="py-20 bg-[#F7F9FB]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Our ERP{" "}
+            <span className="text-[#27A2D8]">Implementation Approach</span>
+          </h2>
+          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+            A structured and proven approach to successfully deploy ERPNext for your business,
+            ensuring minimal disruption and maximum ROI.
+          </p>
+        </div>
+
+        {/* Content */}
+        <div className="flex flex-col lg:flex-row gap-12 items-center">
+
+          {/* LEFT - Timeline */}
+          <div className="w-full lg:w-1/2 relative">
+
+            {/* vertical line */}
+            <div className="absolute left-4 top-0 bottom-0 w-[2px] bg-gray-200"></div>
+
+            <div className="space-y-6">
+              {steps.map((step, index) => (
+                <div key={index} className="relative pl-12">
+                  
+                  {/* step number circle */}
+                  <div className="absolute left-0 top-2 w-8 h-8 rounded-full bg-[#E8F4FB] flex items-center justify-center text-sm font-semibold text-[#27A2D8]">
+                    {String(index + 1).padStart(2, "0")}
+                  </div>
+
+                  {/* card */}
+                  <div className="bg-white p-5 rounded-xl shadow-md hover:shadow-xl transition">
+                    <h4 className="font-semibold text-gray-900 text-base">
+                      {step.title}
+                    </h4>
+                    <p className="text-gray-600 text-sm mt-1">
+                      {step.desc}
+                    </p>
+                  </div>
+
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* RIGHT - Image */}
+          <div className="w-full lg:w-1/2">
+            <motion.img
+              src={erpProcessImg} // 👈 import this image
+              alt="ERP Implementation Process"
+              className="w-full h-auto object-contain rounded-2xl"
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+            />
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+};
 const Homepage: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen bg-[#F0F5F9]">
@@ -530,10 +710,10 @@ const Homepage: React.FC = () => {
                 </div>
                 <div className="p-8">
                   <h3 className="mb-3" style={{ fontFamily: 'Inter', fontSize: '21px', fontWeight: 800 }}>
-                    Odoo ERP Implementation
+                     ERP Implementation
                   </h3>
                   <p className="mb-6" style={{ fontFamily: 'Inter', fontSize: '16px', fontWeight: 400 }}>
-                    A tailored Odoo ERP system to
+                    A tailored Odoo & ERPNext system to
                     streamline your entire workflow and
                     gain real-time insights.
 
@@ -609,13 +789,12 @@ const Homepage: React.FC = () => {
         <section className="py-10 bg-[#f7f8fa]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Why Odoo?
-              </h2>
+             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+               Why Odoo ?
+             </h2>
               <p className="text-xl font-normal text-black max-w-3xl mx-auto">
-                Odoo is the world's most popular open-source ERP system, trusted
-                by millions of businesses worldwide.
-              </p>
+                 Odoo and ERPNext are powerful open-source ERP systems, trusted by businesses worldwide to streamline operations and improve efficiency.
+                  </p>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
@@ -687,6 +866,10 @@ const Homepage: React.FC = () => {
           </div>
         </section>
 
+        {/* ERPNext Overview */}
+
+        <ERPNextOverview />
+
         {/* beltech impact section*/}
         <section className="py-10 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -711,9 +894,9 @@ const Homepage: React.FC = () => {
                     <Award className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-black mb-2">Odoo ERP experts</h3>
+                    <h3 className="text-xl font-bold text-black mb-2">ERP experts</h3>
                     <p className="text-base font-normal text-black">
-                      Our team has deep expertise in Odoo and extensive experience in ERP implementation.
+                     Our team has deep expertise in Odoo and ERPNext, with extensive experience in ERP implementation.
                     </p>
                   </div>
                 </div>
@@ -769,6 +952,10 @@ const Homepage: React.FC = () => {
         {/* Business Operations We Transform */}
 
         <BusinessOperations />
+
+          {/* ERPImplementationApproach  */}
+
+        <ERPImplementationApproach />
 
         {/*  Industries We Serve section*/}
         <section className="py-16 bg-white">
