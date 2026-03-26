@@ -40,63 +40,108 @@ import school from "./../assets/homepage/school.jpg";
 import kiray from "../assets/homepage/kiray.jpg";
 import care from "./../assets/homepage/care.jpg";
 
+// Consistent icon wrapper component
+const IconWrapper = ({ icon, bgColor = "#E5F1FF", iconColor = "#0078B7" }: { icon: React.ReactNode; bgColor?: string; iconColor?: string }) => {
+  return (
+    <div 
+      className="w-12 h-12 rounded-lg flex items-center justify-center"
+      style={{ backgroundColor: bgColor }}
+    >
+      <div style={{ color: iconColor }}>
+        {icon}
+      </div>
+    </div>
+  );
+};
+
+// Consistent feature card component
+const FeatureCard = ({ icon, title, description, iconBgColor = "#E5F1FF", iconColor = "#0078B7" }: { 
+  icon: React.ReactNode; 
+  title: string; 
+  description: string;
+  iconBgColor?: string;
+  iconColor?: string;
+}) => {
+  return (
+    <div className="flex items-center px-6 py-5 bg-white rounded-xl border-l-4 border-l-[#60A5FA] shadow-md hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5">
+      <div className="mr-5 flex-shrink-0">
+        <IconWrapper icon={icon} bgColor={iconBgColor} iconColor={iconColor} />
+      </div>
+      <div>
+        <h4 className="font-semibold text-gray-900 text-base md:text-lg leading-snug">
+          {title}
+        </h4>
+        <p className="text-gray-600 text-sm md:text-sm mt-1 leading-relaxed">
+          {description}
+        </p>
+      </div>
+    </div>
+  );
+};
 
 const BusinessOperations = () => {
   const operationCategories = [
-    { title: "Finance & Decision Making", desc: "Cash flow, expenses, profitability, and performance clarity.", icon: <BarChart3 className="w-5 h-5 text-[#0078B7]" /> },
-    { title: "Sales & Customer Handling", desc: "Lead tracking, deal management, faster responses.", icon: <Handshake className="w-5 h-5 text-[#0078B7]" /> },
-    { title: "Procurement & Supplier Management", desc: "Purchasing, approvals, vendors, cost transparency.", icon: <Truck className="w-5 h-5 text-[#0078B7]" /> },
-    { title: "People & Workforce Management", desc: "Employees, attendance, performance, payroll.", icon: <Users className="w-5 h-5 text-[#0078B7]" /> },
-    { title: "Inventory & Operational Control", desc: "Stock accuracy, movement tracking, loss reduction.", icon: <Boxes className="w-5 h-5 text-[#0078B7]" /> },
-    { title: "Project & Service Delivery", desc: "Task planning, ownership, progress tracking, accountability.", icon: <ListTodo className="w-5 h-5 text-[#0078B7]" /> }
+    { title: "Finance & Decision Making", desc: "Cash flow, expenses, profitability, and performance clarity.", icon: <BarChart3 className="w-5 h-5" /> },
+    { title: "Sales & Customer Handling", desc: "Lead tracking, deal management, faster responses.", icon: <Handshake className="w-5 h-5" /> },
+    { title: "Procurement & Supplier Management", desc: "Purchasing, approvals, vendors, cost transparency.", icon: <Truck className="w-5 h-5" /> },
+    { title: "People & Workforce Management", desc: "Employees, attendance, performance, payroll.", icon: <Users className="w-5 h-5" /> },
+    { title: "Inventory & Operational Control", desc: "Stock accuracy, movement tracking, loss reduction.", icon: <Boxes className="w-5 h-5" /> },
+    { title: "Project & Service Delivery", desc: "Task planning, ownership, progress tracking, accountability.", icon: <ListTodo className="w-5 h-5" /> }
   ];
 
-
   const pillIcons = [
-    { icon: BarChart3, color: "text-blue-500" },
-    { icon: Network, color: "text-purple-500" },
-    { icon: Cloud, color: "text-sky-500" },
-    { icon: Users, color: "text-green-500" },
-    { icon: ListTodo, color: "text-orange-500" },
-    { icon: TrendingUp, color: "text-pink-500" },
+    { icon: BarChart3, color: "text-[#0078B7]" },
+    { icon: Network, color: "text-[#0078B7]" },
+    { icon: Cloud, color: "text-[#0078B7]" },
+    { icon: Users, color: "text-[#0078B7]" },
+    { icon: ListTodo, color: "text-[#0078B7]" },
+    { icon: TrendingUp, color: "text-[#0078B7]" },
   ];
 
   return (
     <section className="py-24 bg-[#f7f8fa] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <h2
-            className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
-          >
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Business Operations We{" "}
             <span className="text-[#0078B7]">Transform</span>
           </h2>
-          <p
-            className="text-xl font-normal text-black max-w-3xl mx-auto"
-          >
+          <p className="text-xl font-normal text-black max-w-3xl mx-auto">
             Streamline your business processes with our comprehensive suite of
             operational tools designed for modern enterprises.
           </p>
         </div>
 
-        {/* Pill Icon Row  */}
+        {/* Pill Icon Row */}
         <div className="w-full lg:w-[calc(50%-1.5rem)] mb-6">
           <div className="flex flex-wrap justify-center gap-4 md:gap-5">
             {pillIcons.map((item, idx) => (
               <div
                 key={idx}
-                className="w-11 h-11 md:w-12 md:h-12 rounded-full flex items-center justify-center  border border-gray-100 shadow-[0_8px_20px_rgba(15,23,42,0.1)] hover:shadow-[0_12px_30px_rgba(15,23,42,0.15)] hover:-translate-y-0.5 transition-all cursor-default"
+                className="w-11 h-11 md:w-12 md:h-12 rounded-full flex items-center justify-center border border-gray-100 shadow-[0_8px_20px_rgba(15,23,42,0.1)] hover:shadow-[0_12px_30px_rgba(15,23,42,0.15)] hover:-translate-y-0.5 transition-all cursor-default"
               >
-                <item.icon
-                  className={`w-5 h-5 ${item.color}`}
-                />
+                <item.icon className={`w-5 h-5 ${item.color}`} />
               </div>
             ))}
           </div>
         </div>
 
         <div className="flex flex-col lg:flex-row gap-14 lg:gap-12 items-stretch justify-between px-2 sm:px-0">
-          {/* Left Image Section */}
+          {/* Left Content Section */}
+          <div className="w-full lg:w-1/2 flex flex-col">
+            <div className="space-y-4">
+              {operationCategories.map((item, idx) => (
+                <FeatureCard
+                  key={idx}
+                  icon={item.icon}
+                  title={item.title}
+                  description={item.desc}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Right Image Section */}
           <div className="w-full lg:w-1/2 flex flex-col">
             <div className="relative overflow-visible flex-1">
               <img
@@ -104,32 +149,6 @@ const BusinessOperations = () => {
                 alt="Business operations dashboard"
                 className="w-full h-full object-contain"
               />
-            </div>
-          </div>
-
-          {/* Right Content Section */}
-          <div className="w-full lg:w-1/2 flex flex-col">
-            <div className="space-y-4">
-              {operationCategories.map((item, idx) => (
-                <motion.div
-                  key={idx}
-                  className="flex items-center px-6 py-4 md:px-7 md:py-5 bg-white rounded-xl border-l-4 border-l-[#60A5FA] shadow-md hover:shadow-xl transition duration-200"
-                >
-                  <div className="mr-4 md:mr-5 flex-shrink-0">
-                    <div className="w-12 h-12 md:w-12 md:h-12 rounded-lg bg-[#E5F1FF] flex items-center justify-center">
-                      {item.icon}
-                    </div>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 text-base md:text-lg leading-snug">
-                      {item.title}
-                    </h4>
-                    <p className="text-gray-600 text-sm md:text-sm mt-1 leading-relaxed">
-                      {item.desc}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
             </div>
           </div>
         </div>
@@ -400,83 +419,67 @@ const IndustriesCarousel: React.FC<{ industries: typeof industries }> = ({ indus
     </div>
   );
 };
+
 const ERPNextOverview = () => {
   const features = [
     {
       title: "All-in-One Business Management",
       desc: "Manage sales, inventory, accounting, HR, and operations from a single ERPNext platform.",
-      icon: <Layers className="w-5 h-5 text-[#27A2D8]" />,
+      icon: <Layers className="w-5 h-5" />,
     },
     {
       title: "User-Friendly Interface",
       desc: "Simple, intuitive UI that allows teams to work efficiently with minimal training.",
-      icon: <Users className="w-5 h-5 text-[#27A2D8]" />,
+      icon: <Users className="w-5 h-5" />,
     },
     {
       title: "Modular ERP System",
-      desc: "Start small and scale by adding modules as your business grows.",
-      icon: <Boxes className="w-5 h-5 text-[#27A2D8]" />,
+      desc: "Start small and scale easily by adding flexible modules as your business grows.",
+      icon: <Boxes className="w-5 h-5" />,
     },
     {
       title: "Real-Time Analytics",
       desc: "Get instant insights with dashboards, reports, and business intelligence tools.",
-      icon: <BarChart3 className="w-5 h-5 text-[#27A2D8]" />,
+      icon: <BarChart3 className="w-5 h-5" />,
     },
   ];
 
   return (
-    <section className="py-20 bg-[#F4F8FB] relative overflow-hidden">
+    <section className="py-20 bg-[#f7f8fa] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-14">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            <span className="text-[#27A2D8]">ERPNext</span> Overview
+            <span className="text-[#0078B7]">ERPNext</span> Overview
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+          <p className="text-xl font-normal text-black max-w-3xl mx-auto">
             Transform your operations with intelligent ERPNext solutions designed
             for modern businesses. Streamline your operations in one unified platform.
           </p>
         </div>
 
-        {/* Content */}
+        {/* Content - Image on Left, Features on Right */}
         <div className="flex flex-col lg:flex-row items-center gap-12">
           
           {/* Left Image */}
           <div className="w-full lg:w-1/2">
-            <motion.img
-              src={erpnextImg} // replace with your actual image
+            <img
+              src={erpnextImg}
               alt="ERPNext Overview"
               className="w-full h-auto object-contain rounded-2xl"
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
             />
           </div>
 
           {/* Right Features */}
           <div className="w-full lg:w-1/2 space-y-4">
             {features.map((item, idx) => (
-              <motion.div
+              <FeatureCard
                 key={idx}
-                className="flex items-start gap-4 p-5 bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300"
-                initial={{ opacity: 0, x: 40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: idx * 0.1 }}
-              >
-                <div className="w-10 h-10 flex items-center justify-center bg-[#E8F4FB] rounded-lg">
-                  {item.icon}
-                </div>
-
-                <div>
-                  <h4 className="font-semibold text-gray-900 text-base">
-                    {item.title}
-                  </h4>
-                  <p className="text-gray-600 text-sm mt-1">
-                    {item.desc}
-                  </p>
-                </div>
-              </motion.div>
+                icon={item.icon}
+                title={item.title}
+                description={item.desc}
+              />
             ))}
           </div>
 
@@ -485,6 +488,7 @@ const ERPNextOverview = () => {
     </section>
   );
 };
+
 const ERPImplementationApproach = () => {
   const steps = [
     {
@@ -514,71 +518,68 @@ const ERPImplementationApproach = () => {
   ];
 
   return (
-    <section className="py-20 bg-[#F7F9FB]">
+    <section className="py-20 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-14">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Our ERP{" "}
-            <span className="text-[#27A2D8]">Implementation Approach</span>
+            <span className="text-[#0078B7]">Implementation Approach</span>
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+          <p className="text-xl font-normal text-black max-w-3xl mx-auto">
             A structured and proven approach to successfully deploy ERPNext for your business,
             ensuring minimal disruption and maximum ROI.
           </p>
         </div>
 
-        {/* Content */}
-        <div className="flex flex-col lg:flex-row gap-12 items-center">
-
-          {/* LEFT - Timeline */}
-          <div className="w-full lg:w-1/2 relative">
-
-            {/* vertical line */}
-            <div className="absolute left-4 top-0 bottom-0 w-[2px] bg-gray-200"></div>
-
-            <div className="space-y-6">
-              {steps.map((step, index) => (
-                <div key={index} className="relative pl-12">
-                  
-                  {/* step number circle */}
-                  <div className="absolute left-0 top-2 w-8 h-8 rounded-full bg-[#E8F4FB] flex items-center justify-center text-sm font-semibold text-[#27A2D8]">
-                    {String(index + 1).padStart(2, "0")}
-                  </div>
-
-                  {/* card */}
-                  <div className="bg-white p-5 rounded-xl shadow-md hover:shadow-xl transition">
-                    <h4 className="font-semibold text-gray-900 text-base">
-                      {step.title}
-                    </h4>
-                    <p className="text-gray-600 text-sm mt-1">
-                      {step.desc}
-                    </p>
-                  </div>
-
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* RIGHT - Image */}
-          <div className="w-full lg:w-1/2">
-            <motion.img
-              src={erpProcessImg} // 👈 import this image
+        {/* Content - Image on Left, Steps on Right */}
+        <div className="flex flex-col lg:flex-row gap-12 items-start">
+          {/* LEFT - Image */}
+          <div className="w-full lg:w-1/2 sticky top-8">
+            <img
+              src={erpProcessImg}
               alt="ERP Implementation Process"
               className="w-full h-auto object-contain rounded-2xl"
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
             />
           </div>
 
+          {/* RIGHT - TRUE TIMELINE */}
+<div className="w-full lg:w-1/2 relative">
+
+  {/* FULL vertical line */}
+  <div className="absolute left-5 top-0 bottom-0 w-[2px] bg-gray-200"></div>
+
+  <div className="space-y-10">
+    {steps.map((step, index) => (
+      <div key={index} className="relative flex items-start">
+
+        {/* Circle ON the line */}
+        <div className="absolute left-0 flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 bg-white">
+          <span className="text-[#0078B7] text-sm font-medium">
+            {String(index + 1).padStart(2, "0")}
+          </span>
+        </div>
+
+        {/* Content */}
+        <div className="ml-16">
+          <h4 className="text-base md:text-lg font-semibold text-gray-900 mb-1">
+            {step.title}
+          </h4>
+          <p className="text-gray-500 text-sm leading-relaxed max-w-md">
+            {step.desc}
+          </p>
+        </div>
+
+      </div>
+    ))}
+  </div>
+</div>
         </div>
       </div>
     </section>
   );
 };
+
 const Homepage: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen bg-[#F0F5F9]">
@@ -670,20 +671,6 @@ const Homepage: React.FC = () => {
 
             </div>
           </div>
-          {/* <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 text-center flex flex-col items-center pointer-events-auto">
-            <span className="text-sm text-white mb-2">Discover Our Solutions</span>
-            <button
-              className="p-0 bg-transparent hover:bg-transparent transition-colors duration-200"
-              onClick={() => {
-                const solutionsSection = document.getElementById("solutions-section");
-                if (solutionsSection) {
-                  solutionsSection.scrollIntoView({ behavior: "smooth" });
-                }
-              }}
-            >
-              <ArrowDown className="w-8 h-8 text-[#0078B7]" />
-            </button>
-          </div> */}
         </section>
 
 
@@ -788,7 +775,7 @@ const Homepage: React.FC = () => {
         </section>
 
 
-        {/* beltech impact section*/}
+        {/* beltech impact section - updated with consistent icon styling */}
         <section className="py-10 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
@@ -799,32 +786,32 @@ const Homepage: React.FC = () => {
             </div>
 
             <div className="flex flex-col lg:flex-row gap-12 items-stretch">
+              {/* Image on Left */}
               <div className="lg:flex-1 flex items-stretch">
                 <img src={beltechImpact} alt="BelTech Impact" className="rounded-3xl w-full h-full object-cover" />
               </div>
 
+              {/* Content on Right */}
               <div className="lg:flex-1 flex flex-col space-y-6 h-full">
                 <div
-                  className="bg-white p-6 rounded-3xl flex items-start space-x-4 flex-1 border-l-4 border-[#0078B7] transform transition-transform duration-300 hover:-translate-y-0.5"
-                  style={{ boxShadow: '4px 4px 10px rgba(0,0,0,0.1)' }}
+                  className="bg-white p-6 rounded-3xl flex items-start space-x-4 flex-1 border-l-4 border-[#60A5FA] shadow-md hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
                 >
-                  <div className="flex-shrink-0 h-12 w-12 bg-[#0078B7] flex items-center justify-center rounded-sm">
-                    <Award className="w-6 h-6 text-white" />
+                  <div className="flex-shrink-0">
+                    <IconWrapper icon={<Award className="w-5 h-5" />} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-black mb-2">Odoo ERP experts</h3>
+                    <h3 className="text-xl font-bold text-black mb-2">ERP experts</h3>
                     <p className="text-base font-normal text-black">
-                      Our team has deep expertise in Odoo and extensive experience in ERP implementation.
+                      Our team has deep expertise in Odoo and ERPNext, with extensive experience in ERP implementation.
                     </p>
                   </div>
                 </div>
 
                 <div
-                  className="bg-white p-6 rounded-3xl flex items-start space-x-4 flex-1 border-l-4 border-[#0078B7] transform transition-transform duration-300 hover:-translate-y-0.5"
-                  style={{ boxShadow: '4px 4px 10px rgba(0,0,0,0.1)' }}
+                  className="bg-white p-6 rounded-3xl flex items-start space-x-4 flex-1 border-l-4 border-[#60A5FA] shadow-md hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
                 >
-                  <div className="flex-shrink-0 h-12 w-12 bg-[#0078B7] flex items-center justify-center rounded-sm">
-                    <Globe className="w-6 h-6 text-white" />
+                  <div className="flex-shrink-0">
+                    <IconWrapper icon={<Globe className="w-5 h-5" />} />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-black mb-2">Real-world African business focus</h3>
@@ -835,11 +822,10 @@ const Homepage: React.FC = () => {
                 </div>
 
                 <div
-                  className="bg-white p-6 rounded-3xl flex items-start space-x-4 flex-1 border-l-4 border-[#0078B7] transform transition-transform duration-300 hover:-translate-y-0.5"
-                  style={{ boxShadow: '4px 4px 10px rgba(0,0,0,0.1)' }}
+                  className="bg-white p-6 rounded-3xl flex items-start space-x-4 flex-1 border-l-4 border-[#60A5FA] shadow-md hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
                 >
-                  <div className="flex-shrink-0 h-12 w-12 bg-[#0078B7] flex items-center justify-center rounded-sm">
-                    <Zap className="w-6 h-6 text-white" />
+                  <div className="flex-shrink-0">
+                    <IconWrapper icon={<Zap className="w-5 h-5" />} />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-black mb-2">Open-source innovation at your service</h3>
@@ -850,11 +836,10 @@ const Homepage: React.FC = () => {
                 </div>
 
                 <div
-                  className="bg-white p-6 rounded-3xl flex items-start space-x-4 flex-1 border-l-4 border-[#0078B7] transform transition-transform duration-300 hover:-translate-y-0.5"
-                  style={{ boxShadow: '4px 4px 10px rgba(0,0,0,0.1)' }}
+                  className="bg-white p-6 rounded-3xl flex items-start space-x-4 flex-1 border-l-4 border-[#60A5FA] shadow-md hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
                 >
-                  <div className="flex-shrink-0 h-12 w-12 bg-[#0078B7] flex items-center justify-center rounded-sm">
-                    <DollarSign className="w-6 h-6 text-white" />
+                  <div className="flex-shrink-0">
+                    <IconWrapper icon={<DollarSign className="w-5 h-5" />} />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-black mb-2">Agile, scalable, and cost-effective</h3>
@@ -888,7 +873,6 @@ const Homepage: React.FC = () => {
                 <div className="p-6">
                   <h3 className="mb-3" style={{ fontFamily: 'Inter', fontSize: '21px', fontWeight: 800 }}>School360</h3>
                   <p className="mb-6" style={{ fontFamily: 'Inter', fontSize: '16px', fontWeight: 400 }}>A comprehensive school management platform for administration, attendance, exams, fees, and parent communication.</p>
-                  {/* <a className="text-[#0078B7] font-bold flex items-center space-x-2 hover:underline cursor-pointer">Learn More</a> */}
                 </div>
               </div>
 
@@ -899,7 +883,6 @@ const Homepage: React.FC = () => {
                 <div className="p-6">
                   <h3 className="mb-3" style={{ fontFamily: 'Inter', fontSize: '21px', fontWeight: 800 }}>Kiray+</h3>
                   <p className="mb-6" style={{ fontFamily: 'Inter', fontSize: '16px', fontWeight: 400 }}>Rental and asset management tools for homes and machinery — listings, leases, tracking, and payments.</p>
-                  {/* <a className="text-[#0078B7] font-bold flex items-center space-x-2 hover:underline cursor-pointer">Learn More</a> */}
                 </div>
               </div>
 
@@ -910,30 +893,30 @@ const Homepage: React.FC = () => {
                 <div className="p-6">
                   <h3 className="mb-3" style={{ fontFamily: 'Inter', fontSize: '21px', fontWeight: 800 }}>CareCental</h3>
                   <p className="mb-6" style={{ fontFamily: 'Inter', fontSize: '16px', fontWeight: 400 }}>A comprehensive healthcare management platform — appointments, records, treatments, and billing.</p>
-                  {/* <a className="text-[#0078B7] font-bold flex items-center space-x-2 hover:underline cursor-pointer">Learn More</a> */}
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-          {/* why oddo part */}
+          {/* why oddo part - updated with consistent icon styling */}
         <section className="py-10 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-               Why Odoo ?
+               Why Odoo?
              </h2>
               <p className="text-xl font-normal text-black max-w-3xl mx-auto">
-                 Odoo and ERPNext are powerful open-source ERP systems, trusted by businesses worldwide to streamline operations and improve efficiency.
+                 Odoo is the world's most popular open-source ERP system, trusted by millions of businesses worldwide.
                   </p>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
 
+              {/* Features on Left */}
               <div className="flex flex-col gap-6 h-full">
-                <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-200 flex items-start space-x-4">
-                  <CheckCircle className="w-6 h-6 text-[#0078B7] flex-shrink-0" />
+                <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-200 flex items-start space-x-4 border-l-4 border-l-[#60A5FA]">
+                  <IconWrapper icon={<CheckCircle className="w-5 h-5" />} />
                   <div>
                     <h3 className="text-lg font-bold text-gray-900 mb-1">
                       All-in-One Solution
@@ -945,8 +928,8 @@ const Homepage: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-200 flex items-start space-x-4">
-                  <Users className="w-6 h-6 text-[#0078B7] flex-shrink-0" />
+                <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-200 flex items-start space-x-4 border-l-4 border-l-[#60A5FA]">
+                  <IconWrapper icon={<Users className="w-5 h-5" />} />
                   <div>
                     <h3 className="text-lg font-bold text-gray-900 mb-1">
                       User-Friendly Interface
@@ -954,13 +937,12 @@ const Homepage: React.FC = () => {
                     <p className="text-base font-normal text-gray-700">
                       Empower your team with an intuitive interface that is
                       easy to navigate.
-
                     </p>
                   </div>
                 </div>
 
-                <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-200 flex items-start space-x-4">
-                  <Layers className="w-6 h-6 text-[#0078B7] flex-shrink-0" />
+                <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-200 flex items-start space-x-4 border-l-4 border-l-[#60A5FA]">
+                  <IconWrapper icon={<Layers className="w-5 h-5" />} />
                   <div>
                     <h3 className="text-lg font-bold text-gray-900 mb-1">
                       Modular Architecture
@@ -971,8 +953,8 @@ const Homepage: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-200 flex items-start space-x-4">
-                  <TrendingUp className="w-6 h-6 text-[#0078B7] flex-shrink-0" />
+                <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-200 flex items-start space-x-4 border-l-4 border-l-[#60A5FA]">
+                  <IconWrapper icon={<TrendingUp className="w-5 h-5" />} />
                   <div>
                     <h3 className="text-lg font-bold text-gray-900 mb-1">
                       Scalable Growth
@@ -980,12 +962,12 @@ const Homepage: React.FC = () => {
                     <p className="text-base font-normal text-gray-700">
                       Handle more tasks with the same or fewer human resources
                       as your business grows.
-
                     </p>
                   </div>
                 </div>
               </div>
 
+              {/* Image on Right */}
               <div className="flex h-full">
                 <img
                   src={odoo}
@@ -998,98 +980,16 @@ const Homepage: React.FC = () => {
           </div>
         </section>
 
-        {/* ERPNext Overview */}
-
+        {/* ERPNext Overview - Image on Left, Features on Right */}
         <ERPNextOverview />
 
-        {/* beltech impact section*/}
-        <section className="py-10 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">BelTech Impact</h2>
-              <p className="text-xl font-normal text-black max-w-3xl mx-auto">
-                We combine technical expertise with deep understanding of African business needs to deliver exceptional results.
-              </p>
-            </div>
-
-            <div className="flex flex-col lg:flex-row gap-12 items-stretch">
-              <div className="lg:flex-1 flex items-stretch">
-                <img src={beltechImpact} alt="BelTech Impact" className="rounded-3xl w-full h-full object-cover" />
-              </div>
-
-              <div className="lg:flex-1 flex flex-col space-y-6 h-full">
-                <div
-                  className="bg-white p-6 rounded-3xl flex items-start space-x-4 flex-1 border-l-4 border-[#27A2D8] transform transition-transform duration-300 hover:-translate-y-0.5"
-                  style={{ boxShadow: '4px 4px 10px rgba(0,0,0,0.1)' }}
-                >
-                  <div className="flex-shrink-0 h-12 w-12 bg-[#27A2D8] flex items-center justify-center rounded-sm">
-                    <Award className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-black mb-2">Odoo ERP experts</h3>
-                    <p className="text-base font-normal text-black">
-                      Our team has deep expertise in Odoo and extensive experience in ERP implementation.
-                    </p>
-                  </div>
-                </div>
-
-                <div
-                  className="bg-white p-6 rounded-3xl flex items-start space-x-4 flex-1 border-l-4 border-[#27A2D8] transform transition-transform duration-300 hover:-translate-y-0.5"
-                  style={{ boxShadow: '4px 4px 10px rgba(0,0,0,0.1)' }}
-                >
-                  <div className="flex-shrink-0 h-12 w-12 bg-[#27A2D8] flex items-center justify-center rounded-sm">
-                    <Globe className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-black mb-2">Real-world African business focus</h3>
-                    <p className="text-base font-normal text-black">
-                      We understand the unique challenges and opportunities of African markets.
-                    </p>
-                  </div>
-                </div>
-
-                <div
-                  className="bg-white p-6 rounded-3xl flex items-start space-x-4 flex-1 border-l-4 border-[#27A2D8] transform transition-transform duration-300 hover:-translate-y-0.5"
-                  style={{ boxShadow: '4px 4px 10px rgba(0,0,0,0.1)' }}
-                >
-                  <div className="flex-shrink-0 h-12 w-12 bg-[#27A2D8] flex items-center justify-center rounded-sm">
-                    <Zap className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-black mb-2">Open-source innovation at your service</h3>
-                    <p className="text-base font-normal text-black">
-                      Leveraging the power of open-source technology for maximum flexibility and value.
-                    </p>
-                  </div>
-                </div>
-
-                <div
-                  className="bg-white p-6 rounded-3xl flex items-start space-x-4 flex-1 border-l-4 border-[#27A2D8] transform transition-transform duration-300 hover:-translate-y-0.5"
-                  style={{ boxShadow: '4px 4px 10px rgba(0,0,0,0.1)' }}
-                >
-                  <div className="flex-shrink-0 h-12 w-12 bg-[#27A2D8] flex items-center justify-center rounded-sm">
-                    <DollarSign className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-black mb-2">Agile, scalable, and cost-effective</h3>
-                    <p className="text-base font-normal text-black">
-                      Solutions that grow with your business while maintaining cost efficiency.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        {/* Business Operations We Transform */}
-
+        {/* Business Operations We Transform - Features on Left, Image on Right */}
         <BusinessOperations />
 
-          {/* ERPImplementationApproach  */}
-
+        {/* ERPImplementationApproach - Timeline on Left, Image on Right */}
         <ERPImplementationApproach />
 
-        {/*  Industries We Serve section*/}
+        {/* Industries We Serve section - Active Card on Left, Waiting Cards on Right */}
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
