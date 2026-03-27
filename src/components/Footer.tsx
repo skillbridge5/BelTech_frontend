@@ -2,7 +2,7 @@
 
 import { Mail, Linkedin, Github, Send, Youtube } from "lucide-react";
 import { Button } from "./ui/button";
-import logo from "../assets/logo.png";
+import logo from "../assets/new-logo-free.png";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -33,11 +33,11 @@ const Footer = () => {
           {/* Logo + About */}
           <div className="flex-1 flex flex-col items-start">
             <div className="flex items-center space-x-3 mb-4">
-              <div className="bg-white rounded-full p-2 flex items-center justify-center">
+              <div className="bg-white rounded-full p-2 flex items-center justify-center overflow-hidden">
                 <img
                   src={logo}
                   alt="BelTech Logo"
-                  className="h-16 w-16 object-contain"
+                  className="h-14 w-14 object-contain"
                 />
               </div>
               <div className="flex flex-col">
@@ -64,7 +64,7 @@ const Footer = () => {
                   href={item.url}
                   target={item.url !== "#" ? "_blank" : undefined}
                   rel={item.url !== "#" ? "noopener noreferrer" : undefined}
-                  className="text-white hover:text-[#27A2D8] transition-colors"
+                  className="text-white hover:text-[#0078B7] transition-colors"
                 >
                   <item.icon size={20} />
                 </a>
@@ -82,7 +82,7 @@ const Footer = () => {
                 <li key={link.name}>
                   <Link
                     to={link.path}
-                    className="text-white hover:text-[#27A2D8] text-sm transition-colors"
+                    className="text-white hover:text-[#0078B7] text-sm transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -120,7 +120,7 @@ const Footer = () => {
                onClick={() =>
               window.open("https://beltech-erp.blsglob.com/", "_blank")
               }
-            className="px-4 bg-[#27A2D8] hover:bg-[#1f8cb8] text-white rounded-md text-sm shadow-md transition-all"
+            className="px-4 bg-[#0078B7] hover:bg-[#005C8A] text-white rounded-md text-sm shadow-md transition-all"
              >
               Watch Live Demo
             </Button>

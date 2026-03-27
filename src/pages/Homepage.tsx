@@ -28,70 +28,120 @@ import market from "../../src/assets/in/market.png";
 import importexport from "../../src/assets/in/import.png";
 import acc from "../../src/assets/in/acc.png";
 import hos from "../../src/assets/in/hospital.png";
+import erpnextImg from "./../assets/homepage/erpnext.png";
+import erpProcessImg from "./../assets/homepage/erp-process.png";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "../components/ui/tooltip";
+import school from "./../assets/homepage/school.jpg";
+import kiray from "../assets/homepage/kiray.jpg";
+import care from "./../assets/homepage/care.jpg";
 
+// Consistent icon wrapper component
+const IconWrapper = ({ icon, bgColor = "#E5F1FF", iconColor = "#0078B7" }: { icon: React.ReactNode; bgColor?: string; iconColor?: string }) => {
+  return (
+    <div 
+      className="w-12 h-12 rounded-lg flex items-center justify-center"
+      style={{ backgroundColor: bgColor }}
+    >
+      <div style={{ color: iconColor }}>
+        {icon}
+      </div>
+    </div>
+  );
+};
+
+// Consistent feature card component
+const FeatureCard = ({ icon, title, description, iconBgColor = "#E5F1FF", iconColor = "#0078B7" }: { 
+  icon: React.ReactNode; 
+  title: string; 
+  description: string;
+  iconBgColor?: string;
+  iconColor?: string;
+}) => {
+  return (
+    <div className="flex items-center px-6 py-5 bg-white rounded-xl border-l-4 border-l-[#60A5FA] shadow-md hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5">
+      <div className="mr-5 flex-shrink-0">
+        <IconWrapper icon={icon} bgColor={iconBgColor} iconColor={iconColor} />
+      </div>
+      <div>
+        <h4 className="font-semibold text-gray-900 text-base md:text-lg leading-snug">
+          {title}
+        </h4>
+        <p className="text-gray-600 text-sm md:text-sm mt-1 leading-relaxed">
+          {description}
+        </p>
+      </div>
+    </div>
+  );
+};
 
 const BusinessOperations = () => {
   const operationCategories = [
-    { title: "Finance & Decision Making", desc: "Cash flow, expenses, profitability, and performance clarity.", icon: <BarChart3 className="w-5 h-5 text-[#27A2D8]" /> },
-    { title: "Sales & Customer Handling", desc: "Lead tracking, deal management, faster responses.", icon: <Handshake className="w-5 h-5 text-[#27A2D8]" /> },
-    { title: "Procurement & Supplier Management", desc: "Purchasing, approvals, vendors, cost transparency.", icon: <Truck className="w-5 h-5 text-[#27A2D8]" /> },
-    { title: "People & Workforce Management", desc: "Employees, attendance, performance, payroll.", icon: <Users className="w-5 h-5 text-[#27A2D8]" /> },
-    { title: "Inventory & Operational Control", desc: "Stock accuracy, movement tracking, loss reduction.", icon: <Boxes className="w-5 h-5 text-[#27A2D8]" /> },
-    { title: "Project & Service Delivery", desc: "Task planning, ownership, progress tracking, accountability.", icon: <ListTodo className="w-5 h-5 text-[#27A2D8]" /> }
+    { title: "Finance & Decision Making", desc: "Cash flow, expenses, profitability, and performance clarity.", icon: <BarChart3 className="w-5 h-5" /> },
+    { title: "Sales & Customer Handling", desc: "Lead tracking, deal management, faster responses.", icon: <Handshake className="w-5 h-5" /> },
+    { title: "Procurement & Supplier Management", desc: "Purchasing, approvals, vendors, cost transparency.", icon: <Truck className="w-5 h-5" /> },
+    { title: "People & Workforce Management", desc: "Employees, attendance, performance, payroll.", icon: <Users className="w-5 h-5" /> },
+    { title: "Inventory & Operational Control", desc: "Stock accuracy, movement tracking, loss reduction.", icon: <Boxes className="w-5 h-5" /> },
+    { title: "Project & Service Delivery", desc: "Task planning, ownership, progress tracking, accountability.", icon: <ListTodo className="w-5 h-5" /> }
   ];
 
-
   const pillIcons = [
-    { icon: BarChart3, color: "text-blue-500" },
-    { icon: Network, color: "text-purple-500" },
-    { icon: Cloud, color: "text-sky-500" },
-    { icon: Users, color: "text-green-500" },
-    { icon: ListTodo, color: "text-orange-500" },
-    { icon: TrendingUp, color: "text-pink-500" },
+    { icon: BarChart3, color: "text-[#0078B7]" },
+    { icon: Network, color: "text-[#0078B7]" },
+    { icon: Cloud, color: "text-[#0078B7]" },
+    { icon: Users, color: "text-[#0078B7]" },
+    { icon: ListTodo, color: "text-[#0078B7]" },
+    { icon: TrendingUp, color: "text-[#0078B7]" },
   ];
 
   return (
-    <section className="py-24 bg-[#F9FAFB] overflow-hidden">
+    <section className="py-24 bg-[#f7f8fa] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <h2
-            className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
-          >
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Business Operations We{" "}
-            <span className="text-[#27A2D8]">Transform</span>
+            <span className="text-[#0078B7]">Transform</span>
           </h2>
-          <p
-            className="text-xl font-normal text-black max-w-3xl mx-auto"
-          >
+          <p className="text-xl font-normal text-black max-w-3xl mx-auto">
             Streamline your business processes with our comprehensive suite of
             operational tools designed for modern enterprises.
           </p>
         </div>
 
-        {/* Pill Icon Row  */}
+        {/* Pill Icon Row */}
         <div className="w-full lg:w-[calc(50%-1.5rem)] mb-6">
           <div className="flex flex-wrap justify-center gap-4 md:gap-5">
             {pillIcons.map((item, idx) => (
               <div
                 key={idx}
-                className="w-11 h-11 md:w-12 md:h-12 rounded-full flex items-center justify-center  border border-gray-100 shadow-[0_8px_20px_rgba(15,23,42,0.1)] hover:shadow-[0_12px_30px_rgba(15,23,42,0.15)] hover:-translate-y-0.5 transition-all cursor-default"
+                className="w-11 h-11 md:w-12 md:h-12 rounded-full flex items-center justify-center border border-gray-100 shadow-[0_8px_20px_rgba(15,23,42,0.1)] hover:shadow-[0_12px_30px_rgba(15,23,42,0.15)] hover:-translate-y-0.5 transition-all cursor-default"
               >
-                <item.icon
-                  className={`w-5 h-5 ${item.color}`}
-                />
+                <item.icon className={`w-5 h-5 ${item.color}`} />
               </div>
             ))}
           </div>
         </div>
 
         <div className="flex flex-col lg:flex-row gap-14 lg:gap-12 items-stretch justify-between px-2 sm:px-0">
-          {/* Left Image Section */}
+          {/* Left Content Section */}
+          <div className="w-full lg:w-1/2 flex flex-col">
+            <div className="space-y-4">
+              {operationCategories.map((item, idx) => (
+                <FeatureCard
+                  key={idx}
+                  icon={item.icon}
+                  title={item.title}
+                  description={item.desc}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Right Image Section */}
           <div className="w-full lg:w-1/2 flex flex-col">
             <div className="relative overflow-visible flex-1">
               <img
@@ -99,32 +149,6 @@ const BusinessOperations = () => {
                 alt="Business operations dashboard"
                 className="w-full h-full object-contain"
               />
-            </div>
-          </div>
-
-          {/* Right Content Section */}
-          <div className="w-full lg:w-1/2 flex flex-col">
-            <div className="space-y-4">
-              {operationCategories.map((item, idx) => (
-                <motion.div
-                  key={idx}
-                  className="flex items-center px-6 py-4 md:px-7 md:py-5 bg-white rounded-xl border-l-4 border-l-[#60A5FA] shadow-md hover:shadow-xl transition duration-200"
-                >
-                  <div className="mr-4 md:mr-5 flex-shrink-0">
-                    <div className="w-12 h-12 md:w-12 md:h-12 rounded-lg bg-[#E5F1FF] flex items-center justify-center">
-                      {item.icon}
-                    </div>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 text-base md:text-lg leading-snug">
-                      {item.title}
-                    </h4>
-                    <p className="text-gray-600 text-sm md:text-sm mt-1 leading-relaxed">
-                      {item.desc}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
             </div>
           </div>
         </div>
@@ -260,7 +284,7 @@ const IndustriesCarousel: React.FC<{ industries: typeof industries }> = ({ indus
           transition={{ duration: 0.5 }}
           className="flex-1 w-full lg:w-2/3"
         >
-          <div className="relative group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-[#27A2D8]/30 transition-all duration-300">
+          <div className="relative group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-[#0078B7]/30 transition-all duration-300">
             <div className="relative h-[400px] lg:h-[500px] overflow-hidden">
               <img
                 src={activeIndustry.image}
@@ -273,7 +297,7 @@ const IndustriesCarousel: React.FC<{ industries: typeof industries }> = ({ indus
               {/* Content Overlay */}
               <div className="absolute bottom-0 left-0 right-0 p-8">
                 <div className="flex items-center gap-4 mb-3">
-                  <div className="p-3 bg-[#27A2D8] rounded-xl">
+                  <div className="p-3 bg-[#0078B7] rounded-xl">
                     <activeIndustry.icon className="w-6 h-6 text-white" />
                   </div>
                   <h3 className="text-2xl md:text-3xl font-bold text-white" style={{ fontFamily: 'Inter', fontWeight: 700 }}>
@@ -288,7 +312,7 @@ const IndustriesCarousel: React.FC<{ industries: typeof industries }> = ({ indus
                 <div className="space-y-2 mb-4">
                   {activeIndustry.bullets.slice(0, 2).map((bullet) => (
                     <div key={bullet} className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-[#27A2D8] shrink-0" />
+                      <CheckCircle className="w-4 h-4 text-[#0078B7] shrink-0" />
                       <span className="text-white/90 text-sm" style={{ fontFamily: 'Inter', fontSize: '14px', fontWeight: 400 }}>
                         {bullet}
                       </span>
@@ -321,7 +345,7 @@ const IndustriesCarousel: React.FC<{ industries: typeof industries }> = ({ indus
                 onClick={() => setActiveIndex(originalIndex)}
                 className="cursor-pointer"
               >
-                <div className="bg-white rounded-xl p-4 border border-gray-100 hover:border-[#27A2D8]/30 transition-all duration-300 flex items-center gap-4">
+                <div className="bg-white rounded-xl p-4 border border-gray-100 hover:border-[#0078B7]/30 transition-all duration-300 flex items-center gap-4">
                   <div className="relative w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden">
                     <img
                       src={industry.image}
@@ -353,24 +377,24 @@ const IndustriesCarousel: React.FC<{ industries: typeof industries }> = ({ indus
         <div className="flex items-center gap-2">
           <button
             onClick={prevCard}
-            className="p-3 rounded-full bg-white border border-gray-200 hover:border-[#27A2D8] hover:bg-[#27A2D8]/10 transition-all duration-300 group"
+            className="p-3 rounded-full bg-white border border-gray-200 hover:border-[#0078B7] hover:bg-[#0078B7]/10 transition-all duration-300 group"
             aria-label="Previous industry"
           >
-            <ChevronLeft className="w-5 h-5 text-gray-600 group-hover:text-[#27A2D8]" />
+            <ChevronLeft className="w-5 h-5 text-gray-600 group-hover:text-[#0078B7]" />
           </button>
           <button
             onClick={nextCard}
-            className="p-3 rounded-full bg-white border border-gray-200 hover:border-[#27A2D8] hover:bg-[#27A2D8]/10 transition-all duration-300 group"
+            className="p-3 rounded-full bg-white border border-gray-200 hover:border-[#0078B7] hover:bg-[#0078B7]/10 transition-all duration-300 group"
             aria-label="Next industry"
           >
-            <ChevronRight className="w-5 h-5 text-gray-600 group-hover:text-[#27A2D8]" />
+            <ChevronRight className="w-5 h-5 text-gray-600 group-hover:text-[#0078B7]" />
           </button>
         </div>
 
         {/* See More Button */}
         <a
           href="/industries"
-          className="inline-flex items-center gap-2 text-[#27A2D8] font-semibold hover:gap-3 transition-all duration-300 group"
+          className="inline-flex items-center gap-2 text-[#0078B7] font-semibold hover:gap-3 transition-all duration-300 group"
           style={{ fontFamily: 'Inter', fontSize: '16px', fontWeight: 600 }}
         >
           <span>See More</span>
@@ -385,7 +409,7 @@ const IndustriesCarousel: React.FC<{ industries: typeof industries }> = ({ indus
             key={index}
             onClick={() => setActiveIndex(index)}
             className={`w-2 h-2 rounded-full transition-all duration-300 ${index === activeIndex
-              ? 'bg-[#27A2D8] w-8'
+              ? 'bg-[#0078B7] w-8'
               : 'bg-gray-300 hover:bg-gray-400'
               }`}
             aria-label={`Go to industry ${index + 1}`}
@@ -393,6 +417,166 @@ const IndustriesCarousel: React.FC<{ industries: typeof industries }> = ({ indus
         ))}
       </div>
     </div>
+  );
+};
+
+const ERPNextOverview = () => {
+  const features = [
+    {
+      title: "All-in-One Business Management",
+      desc: "Manage sales, inventory, accounting, HR, and operations from a single ERPNext platform.",
+      icon: <Layers className="w-5 h-5" />,
+    },
+    {
+      title: "User-Friendly Interface",
+      desc: "Simple, intuitive UI that allows teams to work efficiently with minimal training.",
+      icon: <Users className="w-5 h-5" />,
+    },
+    {
+      title: "Modular ERP System",
+      desc: "Start small and scale easily by adding flexible modules as your business grows.",
+      icon: <Boxes className="w-5 h-5" />,
+    },
+    {
+      title: "Real-Time Analytics",
+      desc: "Get instant insights with dashboards, reports, and business intelligence tools.",
+      icon: <BarChart3 className="w-5 h-5" />,
+    },
+  ];
+
+  return (
+    <section className="py-20 bg-[#f7f8fa] overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Header */}
+        <div className="text-center mb-14">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <span className="text-[#0078B7]">ERPNext</span> Overview
+          </h2>
+          <p className="text-xl font-normal text-black max-w-3xl mx-auto">
+            Transform your operations with intelligent ERPNext solutions designed
+            for modern businesses. Streamline your operations in one unified platform.
+          </p>
+        </div>
+
+        {/* Content - Image on Left, Features on Right */}
+        <div className="flex flex-col lg:flex-row items-center gap-12">
+          
+          {/* Left Image */}
+          <div className="w-full lg:w-1/2">
+            <img
+              src={erpnextImg}
+              alt="ERPNext Overview"
+              className="w-full h-auto object-contain rounded-2xl"
+            />
+          </div>
+
+          {/* Right Features */}
+          <div className="w-full lg:w-1/2 space-y-4">
+            {features.map((item, idx) => (
+              <FeatureCard
+                key={idx}
+                icon={item.icon}
+                title={item.title}
+                description={item.desc}
+              />
+            ))}
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const ERPImplementationApproach = () => {
+  const steps = [
+    {
+      title: "Requirement Analysis",
+      desc: "Understand your business processes, challenges, and goals to create a strategic roadmap.",
+    },
+    {
+      title: "System Design & Planning",
+      desc: "Design ERP structure, modules, and workflows tailored specifically to your business needs.",
+    },
+    {
+      title: "Customization & Integration",
+      desc: "Develop custom features and seamlessly integrate with your existing software ecosystem.",
+    },
+    {
+      title: "ERP Implementation",
+      desc: "Configure core modules like Accounting, HR, Inventory, CRM, and Manufacturing.",
+    },
+    {
+      title: "Testing & Training",
+      desc: "Ensure system reliability through rigorous testing and train your team for smooth adoption.",
+    },
+    {
+      title: "Deployment & Support",
+      desc: "Go live with confidence, backed by continuous monitoring, updates, and support.",
+    },
+  ];
+
+  return (
+    <section className="py-20 bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center mb-14">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Our ERP{" "}
+            <span className="text-[#0078B7]">Implementation Approach</span>
+          </h2>
+          <p className="text-xl font-normal text-black max-w-3xl mx-auto">
+            A structured and proven approach to successfully deploy ERPNext for your business,
+            ensuring minimal disruption and maximum ROI.
+          </p>
+        </div>
+
+        {/* Content - Image on Left, Steps on Right */}
+        <div className="flex flex-col lg:flex-row gap-12 items-start">
+          {/* LEFT - Image */}
+          <div className="w-full lg:w-1/2 sticky top-8">
+            <img
+              src={erpProcessImg}
+              alt="ERP Implementation Process"
+              className="w-full h-auto object-contain rounded-2xl"
+            />
+          </div>
+
+          {/* RIGHT - TRUE TIMELINE */}
+<div className="w-full lg:w-1/2 relative">
+
+  {/* FULL vertical line */}
+  <div className="absolute left-5 top-0 bottom-0 w-[2px] bg-gray-200"></div>
+
+  <div className="space-y-10">
+    {steps.map((step, index) => (
+      <div key={index} className="relative flex items-start">
+
+        {/* Circle ON the line */}
+        <div className="absolute left-0 flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 bg-white">
+          <span className="text-[#0078B7] text-sm font-medium">
+            {String(index + 1).padStart(2, "0")}
+          </span>
+        </div>
+
+        {/* Content */}
+        <div className="ml-16">
+          <h4 className="text-base md:text-lg font-semibold text-gray-900 mb-1">
+            {step.title}
+          </h4>
+          <p className="text-gray-500 text-sm leading-relaxed max-w-md">
+            {step.desc}
+          </p>
+        </div>
+
+      </div>
+    ))}
+  </div>
+</div>
+        </div>
+      </div>
+    </section>
   );
 };
 
@@ -416,8 +600,8 @@ const Homepage: React.FC = () => {
             <div className="flex flex-col items-center text-center w-full">
               <div className="mb-6 relative w-full max-w-3xl mx-auto flex justify-center md:justify-start">
                 <div className="relative inline-flex items-center text-left -translate-x-6 md:-translate-x-25">
-                  <div className="hidden md:block h-0.5 w-16 bg-[#27A2D8] mr-6"></div>
-                  <span className="inline-block text-sm font-medium text-[#27A2D8]">
+                  <div className="hidden md:block h-0.5 w-16 bg-[#0078B7] mr-6"></div>
+                  <span className="inline-block text-sm font-medium text-[#0078B7]">
                     DIGITAL TRANSFORMATION EXPERTS
                   </span>
                 </div>
@@ -433,7 +617,7 @@ const Homepage: React.FC = () => {
 
               <Button
                 size="lg"
-                className="w-full sm:w-auto text-white px-8 py-3 transition-all duration-200 hover:scale-105 bg-[#27A2D8]"
+                className="w-full sm:w-auto text-white px-8 py-3 transition-all duration-200 hover:scale-105 bg-[#0078B7]"
                 style={{ fontFamily: 'Inter', fontSize: '18px', fontWeight: 200 }}
                 onClick={() => (window.location.href = "/Contact")}
               >
@@ -487,26 +671,12 @@ const Homepage: React.FC = () => {
 
             </div>
           </div>
-          {/* <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 text-center flex flex-col items-center pointer-events-auto">
-            <span className="text-sm text-white mb-2">Discover Our Solutions</span>
-            <button
-              className="p-0 bg-transparent hover:bg-transparent transition-colors duration-200"
-              onClick={() => {
-                const solutionsSection = document.getElementById("solutions-section");
-                if (solutionsSection) {
-                  solutionsSection.scrollIntoView({ behavior: "smooth" });
-                }
-              }}
-            >
-              <ArrowDown className="w-8 h-8 text-[#27A2D8]" />
-            </button>
-          </div> */}
         </section>
 
 
 
         {/* our soluton section*/}
-        <section id="solutions-section" className="py-10 bg-white">
+        <section id="solutions-section" className="py-10 bg-[#f7f8fa]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="mb-4" style={{ fontFamily: 'Inter', fontSize: '36px', fontWeight: 700 }}>
@@ -530,17 +700,17 @@ const Homepage: React.FC = () => {
                 </div>
                 <div className="p-8">
                   <h3 className="mb-3" style={{ fontFamily: 'Inter', fontSize: '21px', fontWeight: 800 }}>
-                    Odoo ERP Implementation
+                     ERP Implementation
                   </h3>
                   <p className="mb-6" style={{ fontFamily: 'Inter', fontSize: '16px', fontWeight: 400 }}>
-                    A tailored Odoo ERP system to
+                    A tailored Odoo & ERPNext system to
                     streamline your entire workflow and
                     gain real-time insights.
 
                   </p>
                   <a
                     onClick={() => (window.location.href = "/Services")}
-                    className="text-[#27A2D8] font-bold flex items-center space-x-2 hover:underline cursor-pointer"
+                    className="text-[#0078B7] font-bold flex items-center space-x-2 hover:underline cursor-pointer"
                   >
                     <span>Learn More</span>
                   </a>
@@ -567,7 +737,7 @@ const Homepage: React.FC = () => {
                   </p>
                   <a
                     onClick={() => (window.location.href = "/Services")}
-                    className="text-[#27A2D8] font-bold flex items-center space-x-2 hover:underline cursor-pointer"
+                    className="text-[#0078B7] font-bold flex items-center space-x-2 hover:underline cursor-pointer"
                   >
                     <span>Learn More</span>
                   </a>
@@ -594,7 +764,7 @@ const Homepage: React.FC = () => {
                   </p>
                   <a
                     onClick={() => (window.location.href = "/Services")}
-                    className="text-[#27A2D8] font-bold flex items-center space-x-2 hover:underline cursor-pointer"
+                    className="text-[#0078B7] font-bold flex items-center space-x-2 hover:underline cursor-pointer"
                   >
                     <span>Learn More</span>
                   </a>
@@ -605,89 +775,7 @@ const Homepage: React.FC = () => {
         </section>
 
 
-        {/* why oddo part */}
-        <section className="py-10 bg-[#f7f8fa]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Why Odoo?
-              </h2>
-              <p className="text-xl font-normal text-black max-w-3xl mx-auto">
-                Odoo is the world's most popular open-source ERP system, trusted
-                by millions of businesses worldwide.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
-
-              <div className="flex flex-col gap-6 h-full">
-                <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-200 flex items-start space-x-4">
-                  <CheckCircle className="w-6 h-6 text-[#27A2D8] flex-shrink-0" />
-                  <div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-1">
-                      All-in-One Solution
-                    </h3>
-                    <p className="text-base font-normal text-gray-700">
-                      Manage sales, inventory, accounting, HR, and more from a
-                      single platform.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-200 flex items-start space-x-4">
-                  <Users className="w-6 h-6 text-[#27A2D8] flex-shrink-0" />
-                  <div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-1">
-                      User-Friendly Interface
-                    </h3>
-                    <p className="text-base font-normal text-gray-700">
-                      Empower your team with an intuitive interface that is
-                      easy to navigate.
-
-                    </p>
-                  </div>
-                </div>
-
-                <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-200 flex items-start space-x-4">
-                  <Layers className="w-6 h-6 text-[#27A2D8] flex-shrink-0" />
-                  <div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-1">
-                      Modular Architecture
-                    </h3>
-                    <p className="text-base font-normal text-gray-700">
-                      Start with what you need and add modules as your business grows.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-200 flex items-start space-x-4">
-                  <TrendingUp className="w-6 h-6 text-[#27A2D8] flex-shrink-0" />
-                  <div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-1">
-                      Scalable Growth
-                    </h3>
-                    <p className="text-base font-normal text-gray-700">
-                      Handle more tasks with the same or fewer human resources
-                      as your business grows.
-
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex h-full">
-                <img
-                  src={odoo}
-                  alt="Odoo Interface"
-                  className="w-full h-full rounded-2xl"
-                  style={{ height: "108%", width: "108%" }}
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* beltech impact section*/}
+        {/* beltech impact section - updated with consistent icon styling */}
         <section className="py-10 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
@@ -698,32 +786,32 @@ const Homepage: React.FC = () => {
             </div>
 
             <div className="flex flex-col lg:flex-row gap-12 items-stretch">
+              {/* Image on Left */}
               <div className="lg:flex-1 flex items-stretch">
                 <img src={beltechImpact} alt="BelTech Impact" className="rounded-3xl w-full h-full object-cover" />
               </div>
 
+              {/* Content on Right */}
               <div className="lg:flex-1 flex flex-col space-y-6 h-full">
                 <div
-                  className="bg-white p-6 rounded-3xl flex items-start space-x-4 flex-1 border-l-4 border-[#27A2D8] transform transition-transform duration-300 hover:-translate-y-0.5"
-                  style={{ boxShadow: '4px 4px 10px rgba(0,0,0,0.1)' }}
+                  className="bg-white p-6 rounded-3xl flex items-start space-x-4 flex-1 border-l-4 border-[#60A5FA] shadow-md hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
                 >
-                  <div className="flex-shrink-0 h-12 w-12 bg-[#27A2D8] flex items-center justify-center rounded-sm">
-                    <Award className="w-6 h-6 text-white" />
+                  <div className="flex-shrink-0">
+                    <IconWrapper icon={<Award className="w-5 h-5" />} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-black mb-2">Odoo ERP experts</h3>
+                    <h3 className="text-xl font-bold text-black mb-2">ERP experts</h3>
                     <p className="text-base font-normal text-black">
-                      Our team has deep expertise in Odoo and extensive experience in ERP implementation.
+                      Our team has deep expertise in Odoo and ERPNext, with extensive experience in ERP implementation.
                     </p>
                   </div>
                 </div>
 
                 <div
-                  className="bg-white p-6 rounded-3xl flex items-start space-x-4 flex-1 border-l-4 border-[#27A2D8] transform transition-transform duration-300 hover:-translate-y-0.5"
-                  style={{ boxShadow: '4px 4px 10px rgba(0,0,0,0.1)' }}
+                  className="bg-white p-6 rounded-3xl flex items-start space-x-4 flex-1 border-l-4 border-[#60A5FA] shadow-md hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
                 >
-                  <div className="flex-shrink-0 h-12 w-12 bg-[#27A2D8] flex items-center justify-center rounded-sm">
-                    <Globe className="w-6 h-6 text-white" />
+                  <div className="flex-shrink-0">
+                    <IconWrapper icon={<Globe className="w-5 h-5" />} />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-black mb-2">Real-world African business focus</h3>
@@ -734,11 +822,10 @@ const Homepage: React.FC = () => {
                 </div>
 
                 <div
-                  className="bg-white p-6 rounded-3xl flex items-start space-x-4 flex-1 border-l-4 border-[#27A2D8] transform transition-transform duration-300 hover:-translate-y-0.5"
-                  style={{ boxShadow: '4px 4px 10px rgba(0,0,0,0.1)' }}
+                  className="bg-white p-6 rounded-3xl flex items-start space-x-4 flex-1 border-l-4 border-[#60A5FA] shadow-md hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
                 >
-                  <div className="flex-shrink-0 h-12 w-12 bg-[#27A2D8] flex items-center justify-center rounded-sm">
-                    <Zap className="w-6 h-6 text-white" />
+                  <div className="flex-shrink-0">
+                    <IconWrapper icon={<Zap className="w-5 h-5" />} />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-black mb-2">Open-source innovation at your service</h3>
@@ -749,11 +836,10 @@ const Homepage: React.FC = () => {
                 </div>
 
                 <div
-                  className="bg-white p-6 rounded-3xl flex items-start space-x-4 flex-1 border-l-4 border-[#27A2D8] transform transition-transform duration-300 hover:-translate-y-0.5"
-                  style={{ boxShadow: '4px 4px 10px rgba(0,0,0,0.1)' }}
+                  className="bg-white p-6 rounded-3xl flex items-start space-x-4 flex-1 border-l-4 border-[#60A5FA] shadow-md hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
                 >
-                  <div className="flex-shrink-0 h-12 w-12 bg-[#27A2D8] flex items-center justify-center rounded-sm">
-                    <DollarSign className="w-6 h-6 text-white" />
+                  <div className="flex-shrink-0">
+                    <IconWrapper icon={<DollarSign className="w-5 h-5" />} />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-black mb-2">Agile, scalable, and cost-effective</h3>
@@ -766,11 +852,144 @@ const Homepage: React.FC = () => {
             </div>
           </div>
         </section>
-        {/* Business Operations We Transform */}
 
+      
+
+        {/* Our Products section */}
+        <section className="py-10 bg-[#f7f8fa]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Products</h2>
+              <p className="text-xl font-normal text-black max-w-3xl mx-auto">
+                Explore our flagship products built to streamline operations and deliver value.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                <div className="w-full h-56 overflow-hidden">
+                  <img src={school} alt="360School" className="w-full h-full object-cover scale-150" />
+                </div>
+                <div className="p-6">
+                  <h3 className="mb-3" style={{ fontFamily: 'Inter', fontSize: '21px', fontWeight: 800 }}>School360</h3>
+                  <p className="mb-6" style={{ fontFamily: 'Inter', fontSize: '16px', fontWeight: 400 }}>A comprehensive school management platform for administration, attendance, exams, fees, and parent communication.</p>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                <div className="w-full h-56 overflow-hidden">
+                  <img src={kiray} alt="Kiray" className="w-full h-full object-cover" />
+                </div>
+                <div className="p-6">
+                  <h3 className="mb-3" style={{ fontFamily: 'Inter', fontSize: '21px', fontWeight: 800 }}>Kiray+</h3>
+                  <p className="mb-6" style={{ fontFamily: 'Inter', fontSize: '16px', fontWeight: 400 }}>Rental and asset management tools for homes and machinery — listings, leases, tracking, and payments.</p>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                <div className="w-full h-56 overflow-hidden">
+                  <img src={care} alt="Care Cental" className="w-full h-full object-cover" />
+                </div>
+                <div className="p-6">
+                  <h3 className="mb-3" style={{ fontFamily: 'Inter', fontSize: '21px', fontWeight: 800 }}>CareCental</h3>
+                  <p className="mb-6" style={{ fontFamily: 'Inter', fontSize: '16px', fontWeight: 400 }}>A comprehensive healthcare management platform — appointments, records, treatments, and billing.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+          {/* why oddo part - updated with consistent icon styling */}
+        <section className="py-10 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+               Why Odoo?
+             </h2>
+              <p className="text-xl font-normal text-black max-w-3xl mx-auto">
+                 Odoo is the world's most popular open-source ERP system, trusted by millions of businesses worldwide.
+                  </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
+
+              {/* Features on Left */}
+              <div className="flex flex-col gap-6 h-full">
+                <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-200 flex items-start space-x-4 border-l-4 border-l-[#60A5FA]">
+                  <IconWrapper icon={<CheckCircle className="w-5 h-5" />} />
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-1">
+                      All-in-One Solution
+                    </h3>
+                    <p className="text-base font-normal text-gray-700">
+                      Manage sales, inventory, accounting, HR, and more from a
+                      single platform.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-200 flex items-start space-x-4 border-l-4 border-l-[#60A5FA]">
+                  <IconWrapper icon={<Users className="w-5 h-5" />} />
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-1">
+                      User-Friendly Interface
+                    </h3>
+                    <p className="text-base font-normal text-gray-700">
+                      Empower your team with an intuitive interface that is
+                      easy to navigate.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-200 flex items-start space-x-4 border-l-4 border-l-[#60A5FA]">
+                  <IconWrapper icon={<Layers className="w-5 h-5" />} />
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-1">
+                      Modular Architecture
+                    </h3>
+                    <p className="text-base font-normal text-gray-700">
+                      Start with what you need and add modules as your business grows.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-200 flex items-start space-x-4 border-l-4 border-l-[#60A5FA]">
+                  <IconWrapper icon={<TrendingUp className="w-5 h-5" />} />
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-1">
+                      Scalable Growth
+                    </h3>
+                    <p className="text-base font-normal text-gray-700">
+                      Handle more tasks with the same or fewer human resources
+                      as your business grows.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Image on Right */}
+              <div className="flex h-full">
+                <img
+                  src={odoo}
+                  alt="Odoo Interface"
+                  className="w-full h-full rounded-2xl"
+                  style={{ height: "108%", width: "108%" }}
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ERPNext Overview - Image on Left, Features on Right */}
+        <ERPNextOverview />
+
+        {/* Business Operations We Transform - Features on Left, Image on Right */}
         <BusinessOperations />
 
-        {/*  Industries We Serve section*/}
+        {/* ERPImplementationApproach - Timeline on Left, Image on Right */}
+        <ERPImplementationApproach />
+
+        {/* Industries We Serve section - Active Card on Left, Waiting Cards on Right */}
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
@@ -810,9 +1029,9 @@ const Homepage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="bg-white p-8 rounded-2xl border-2 border-gray-100 hover:border-[#27A2D8] transition-all duration-300 hover:shadow-xl relative overflow-hidden group"
+                className="bg-white p-8 rounded-2xl border-2 border-gray-100 hover:border-[#0078B7] transition-all duration-300 hover:shadow-xl relative overflow-hidden group"
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[#27A2D8]/5 rounded-full -mr-16 -mt-16 group-hover:bg-[#27A2D8]/10 transition-colors duration-300"></div>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#0078B7]/5 rounded-full -mr-16 -mt-16 group-hover:bg-[#0078B7]/10 transition-colors duration-300"></div>
                 <div className="relative">
                   <h3 className="text-2xl font-bold text-gray-900 mb-3">Starter</h3>
                   <p className="text-gray-600 mb-4 text-sm">
@@ -834,7 +1053,7 @@ const Homepage: React.FC = () => {
                       "Standard Dashboards",
                     ].map((feature, i) => (
                       <li key={i} className="flex items-start gap-3">
-                        <CheckCircle className="text-[#27A2D8] w-5 h-5 shrink-0 mt-0.5" />
+                        <CheckCircle className="text-[#0078B7] w-5 h-5 shrink-0 mt-0.5" />
                         <span className="text-gray-700 text-sm">{feature}</span>
                       </li>
                     ))}
@@ -842,7 +1061,7 @@ const Homepage: React.FC = () => {
 
                   <Button
                     size="lg"
-                    className="w-full text-white bg-[#27A2D8] hover:bg-[#1f8cb8] transition-all duration-200 font-semibold"
+                    className="w-full text-white bg-[#0078B7] hover:bg-[#005C8A] transition-all duration-200 font-semibold"
                     onClick={() => (window.location.href = "/contact")}
                   >
                     Get Started
@@ -856,7 +1075,7 @@ const Homepage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="bg-gradient-to-br from-[#27A2D8] to-[#1f8cb8] p-8 rounded-2xl border-2 border-[#27A2D8] hover:shadow-2xl transition-all duration-300 relative overflow-hidden group transform hover:-translate-y-1"
+                className="bg-gradient-to-br from-[#0078B7] to-[#005C8A] p-8 rounded-2xl border-2 border-[#0078B7] hover:shadow-2xl transition-all duration-300 relative overflow-hidden group transform hover:-translate-y-1"
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16 group-hover:bg-white/15 transition-colors duration-300"></div>
                 <div className="relative">
@@ -893,7 +1112,7 @@ const Homepage: React.FC = () => {
 
                   <Button
                     size="lg"
-                    className="w-full bg-white text-[#27A2D8] hover:bg-gray-50 transition-all duration-200 font-semibold"
+                    className="w-full bg-white text-[#0078B7] hover:bg-gray-50 transition-all duration-200 font-semibold"
                     onClick={() => (window.location.href = "/contact")}
                   >
                     Request a Demo
@@ -907,9 +1126,9 @@ const Homepage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="bg-white p-8 rounded-2xl border-2 border-gray-100 hover:border-[#27A2D8] transition-all duration-300 hover:shadow-xl relative overflow-hidden group"
+                className="bg-white p-8 rounded-2xl border-2 border-gray-100 hover:border-[#0078B7] transition-all duration-300 hover:shadow-xl relative overflow-hidden group"
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[#27A2D8]/5 rounded-full -mr-16 -mt-16 group-hover:bg-[#27A2D8]/10 transition-colors duration-300"></div>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#0078B7]/5 rounded-full -mr-16 -mt-16 group-hover:bg-[#0078B7]/10 transition-colors duration-300"></div>
                 <div className="relative">
                   <h3 className="text-2xl font-bold text-gray-900 mb-3">Enterprise</h3>
                   <p className="text-gray-600 mb-4 text-sm">
@@ -932,7 +1151,7 @@ const Homepage: React.FC = () => {
                       "Custom Integrations & Automation",
                     ].map((feature, i) => (
                       <li key={i} className="flex items-start gap-3">
-                        <CheckCircle className="text-[#27A2D8] w-5 h-5 shrink-0 mt-0.5" />
+                        <CheckCircle className="text-[#0078B7] w-5 h-5 shrink-0 mt-0.5" />
                         <span className="text-gray-700 text-sm">{feature}</span>
                       </li>
                     ))}
@@ -940,7 +1159,7 @@ const Homepage: React.FC = () => {
 
                   <Button
                     size="lg"
-                    className="w-full text-white bg-[#27A2D8] hover:bg-[#1f8cb8] transition-all duration-200 font-semibold"
+                    className="w-full text-white bg-[#0078B7] hover:bg-[#005C8A] transition-all duration-200 font-semibold"
                     onClick={() => (window.location.href = "/contact")}
                   >
                     Contact Sales
@@ -1073,7 +1292,7 @@ const Homepage: React.FC = () => {
           <div
             className="absolute inset-0 z-0"
             style={{
-              background: "linear-gradient(to right, #31A8EB, #61C7D5)",
+              background: "linear-gradient(to right, #0078B7, #005C8A)",
               opacity: 0.5,
             }}
           ></div>
@@ -1088,14 +1307,14 @@ const Homepage: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
-                className="px-8 py-3 text-lg transition-all duration-200 hover:scale-105 bg-[#27A2D8]  text-white hover:bg-[#27A2D8]-100"
+                className="px-8 py-3 text-lg transition-all duration-200 hover:scale-105 bg-[#0078B7]  text-white hover:bg-[#005C8A]"
                 onClick={() => (window.location.href = "/contact")}
               >
                 Start Your Digital Journey
               </Button>
               <Button
                 size="lg"
-                className="px-8 py-3 text-lg transition-all duration-200 hover:scale-105 bg-[#27A2D8]  text-white hover:bg-[#27A2D8]-100"
+                className="px-8 py-3 text-lg transition-all duration-200 hover:scale-105 bg-[#0078B7]  text-white hover:bg-[#005C8A]"
                 onClick={() => (window.location.href = "/solutions")}
               >
                 View Success Stories
