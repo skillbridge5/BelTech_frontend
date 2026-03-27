@@ -71,7 +71,7 @@ const Servicespage = () => {
           ERP Implementation
         </h2>
         <p className="mb-8 text-gray-600">
-          Integrate all your core departments: manufacturing, inventory, sales, HR, and accounting with tailored ERP solutions built on Odoo. The service includes:
+          Integrate all your core departments—manufacturing, inventory, sales, HR, and accounting—with tailored ERP solutions powered by ERPNext and Odoo. The service includes:
         </p>
       </div>
 
@@ -86,7 +86,7 @@ const Servicespage = () => {
           <div className="ml-3">
             <h4 className="text-lg font-semibold text-gray-900">Department Integration</h4>
             <p className="text-sm text-gray-600">
-              Sales, inventory, manufacturing, HR, and accounting modules working seamlessly together.
+              Sales, inventory, manufacturing, HR, and accounting modules working together.
             </p>
           </div>
         </motion.div>
@@ -282,7 +282,7 @@ const Servicespage = () => {
         <Settings className="h-6 w-6 text-[#0078B7]" />
       </div>
       <CardTitle className="mt-1 font-bold text-base">
-        API Design & System Integration
+        API Design & Integration
       </CardTitle>
       <CardDescription className="mt-1 text-sm text-gray-700">
         Extend ERP and connect systems with custom APIs.

@@ -68,10 +68,10 @@ const FeatureCard = ({ icon, title, description, iconBgColor = "#E5F1FF", iconCo
         <IconWrapper icon={icon} bgColor={iconBgColor} iconColor={iconColor} />
       </div>
       <div>
-        <h4 className="font-semibold text-gray-900 text-base md:text-lg leading-snug">
+        <h4 className="font-semibold text-gray-900 text-base leading-snug">
           {title}
         </h4>
-        <p className="text-gray-600 text-sm md:text-sm mt-1 leading-relaxed">
+        <p className="text-gray-600 text-sm mt-1 leading-relaxed">
           {description}
         </p>
       </div>
@@ -106,7 +106,7 @@ const BusinessOperations = () => {
             Business Operations We{" "}
             <span className="text-[#0078B7]">Transform</span>
           </h2>
-          <p className="text-xl font-normal text-black max-w-3xl mx-auto">
+          <p className="text-lg text-black max-w-3xl mx-auto">
             Streamline your business processes with our comprehensive suite of
             operational tools designed for modern enterprises.
           </p>
@@ -300,11 +300,11 @@ const IndustriesCarousel: React.FC<{ industries: typeof industries }> = ({ indus
                   <div className="p-3 bg-[#0078B7] rounded-xl">
                     <activeIndustry.icon className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-white" style={{ fontFamily: 'Inter', fontWeight: 700 }}>
+                  <h3 className="text-2xl md:text-3xl font-bold text-white">
                     {activeIndustry.title}
                   </h3>
                 </div>
-                <p className="text-white/90 text-lg mb-4" style={{ fontFamily: 'Inter', fontSize: '18px', fontWeight: 400 }}>
+                <p className="text-white/90 text-base mb-4">
                   {activeIndustry.lead}
                 </p>
 
@@ -313,7 +313,7 @@ const IndustriesCarousel: React.FC<{ industries: typeof industries }> = ({ indus
                   {activeIndustry.bullets.slice(0, 2).map((bullet) => (
                     <div key={bullet} className="flex items-center gap-2">
                       <CheckCircle className="w-4 h-4 text-[#0078B7] shrink-0" />
-                      <span className="text-white/90 text-sm" style={{ fontFamily: 'Inter', fontSize: '14px', fontWeight: 400 }}>
+                      <span className="text-white/90 text-sm">
                         {bullet}
                       </span>
                     </div>
@@ -358,10 +358,10 @@ const IndustriesCarousel: React.FC<{ industries: typeof industries }> = ({ indus
                     </div>
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h4 className="text-sm font-semibold text-gray-900 mb-1 truncate" style={{ fontFamily: 'Inter', fontSize: '14px', fontWeight: 600 }}>
+                    <h4 className="text-sm font-semibold text-gray-900 mb-1 truncate">
                       {industry.title}
                     </h4>
-                    <p className="text-xs text-gray-600 line-clamp-2" style={{ fontFamily: 'Inter', fontSize: '12px', fontWeight: 400 }}>
+                    <p className="text-xs text-gray-600 line-clamp-2">
                       {industry.lead}
                     </p>
                   </div>
@@ -394,8 +394,7 @@ const IndustriesCarousel: React.FC<{ industries: typeof industries }> = ({ indus
         {/* See More Button */}
         <a
           href="/industries"
-          className="inline-flex items-center gap-2 text-[#0078B7] font-semibold hover:gap-3 transition-all duration-300 group"
-          style={{ fontFamily: 'Inter', fontSize: '16px', fontWeight: 600 }}
+          className="inline-flex items-center gap-2 text-[#0078B7] font-semibold hover:gap-3 transition-all duration-300 group text-base"
         >
           <span>See More</span>
           <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -453,7 +452,7 @@ const ERPNextOverview = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             <span className="text-[#0078B7]">ERPNext</span> Overview
           </h2>
-          <p className="text-xl font-normal text-black max-w-3xl mx-auto">
+          <p className="text-lg text-black max-w-3xl mx-auto">
             Transform your operations with intelligent ERPNext solutions designed
             for modern businesses. Streamline your operations in one unified platform.
           </p>
@@ -493,27 +492,27 @@ const ERPImplementationApproach = () => {
   const steps = [
     {
       title: "Requirement Analysis",
-      desc: "Understand your business processes, challenges, and goals to create a strategic roadmap.",
+      desc: "Understand your business processes, challenges, and goals to create a strategic roadmap for ERPNext and Odoo deployment.",
     },
     {
       title: "System Design & Planning",
-      desc: "Design ERP structure, modules, and workflows tailored specifically to your business needs.",
+      desc: "Design ERP structure, modules, and workflows tailored specifically to your business needs using ERPNext or Odoo.",
+    },
+     {
+      title: "ERP Configration",
+      desc: "Configure core modules like Accounting, HR, Inventory, CRM, and Manufacturing in ERPNext or Odoo.",
     },
     {
       title: "Customization & Integration",
-      desc: "Develop custom features and seamlessly integrate with your existing software ecosystem.",
-    },
-    {
-      title: "ERP Implementation",
-      desc: "Configure core modules like Accounting, HR, Inventory, CRM, and Manufacturing.",
+      desc: "Develop custom features and seamlessly integrate with your existing software ecosystem for either ERPNext or Odoo.",
     },
     {
       title: "Testing & Training",
-      desc: "Ensure system reliability through rigorous testing and train your team for smooth adoption.",
+      desc: "Ensure system reliability through rigorous testing and train your team for smooth adoption of ERPNext and Odoo.",
     },
     {
       title: "Deployment & Support",
-      desc: "Go live with confidence, backed by continuous monitoring, updates, and support.",
+      desc: "Go live with confidence, backed by continuous monitoring, updates, and support for both ERP platforms.",
     },
   ];
 
@@ -523,12 +522,11 @@ const ERPImplementationApproach = () => {
         {/* Header */}
         <div className="text-center mb-14">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Our ERP{" "}
-            <span className="text-[#0078B7]">Implementation Approach</span>
+            Our <span className="text-[#0078B7]">ERP Implementation Approach</span>
           </h2>
-          <p className="text-xl font-normal text-black max-w-3xl mx-auto">
-            A structured and proven approach to successfully deploy ERPNext for your business,
-            ensuring minimal disruption and maximum ROI.
+          <p className="text-lg text-black max-w-3xl mx-auto">
+            A structured and proven approach to successfully deploy <strong>ERPNext and Odoo </strong> 
+            for your business, ensuring minimal disruption and maximum ROI.
           </p>
         </div>
 
@@ -538,42 +536,39 @@ const ERPImplementationApproach = () => {
           <div className="w-full lg:w-1/2 sticky top-8">
             <img
               src={erpProcessImg}
-              alt="ERP Implementation Process"
+              alt="ERPNext and Odoo Implementation Process"
               className="w-full h-auto object-contain rounded-2xl"
             />
           </div>
 
           {/* RIGHT - TRUE TIMELINE */}
-<div className="w-full lg:w-1/2 relative">
+          <div className="w-full lg:w-1/2 relative">
+            {/* FULL vertical line */}
+            <div className="absolute left-5 top-0 bottom-0 w-[2px] bg-gray-200"></div>
 
-  {/* FULL vertical line */}
-  <div className="absolute left-5 top-0 bottom-0 w-[2px] bg-gray-200"></div>
+            <div className="space-y-10">
+              {steps.map((step, index) => (
+                <div key={index} className="relative flex items-start">
+                  {/* Circle ON the line */}
+                  <div className="absolute left-0 flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 bg-white">
+                    <span className="text-[#0078B7] text-sm font-medium">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                  </div>
 
-  <div className="space-y-10">
-    {steps.map((step, index) => (
-      <div key={index} className="relative flex items-start">
-
-        {/* Circle ON the line */}
-        <div className="absolute left-0 flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 bg-white">
-          <span className="text-[#0078B7] text-sm font-medium">
-            {String(index + 1).padStart(2, "0")}
-          </span>
-        </div>
-
-        {/* Content */}
-        <div className="ml-16">
-          <h4 className="text-base md:text-lg font-semibold text-gray-900 mb-1">
-            {step.title}
-          </h4>
-          <p className="text-gray-500 text-sm leading-relaxed max-w-md">
-            {step.desc}
-          </p>
-        </div>
-
-      </div>
-    ))}
-  </div>
-</div>
+                  {/* Content */}
+                  <div className="ml-16">
+                    <h4 className="text-base font-semibold text-gray-900 mb-1">
+                      {step.title}
+                    </h4>
+                    <p className="text-gray-500 text-sm leading-relaxed max-w-md">
+                      {step.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -609,7 +604,7 @@ const Homepage: React.FC = () => {
               <h1 className="text-4xl md:text-[64px] mb-6 leading-tight" style={{ fontFamily: 'Poppins', fontWeight: 90 }}>
                 Streamline. Automate. Scale.
               </h1>
-              <p className="text-[20px] text-white max-w-2xl mx-auto mb-0" style={{ fontFamily: 'Open Sans', fontWeight: 200 }}>
+              <p className="text-lg text-white max-w-2xl mx-auto mb-0">
                 Transforming African businesses with ERP, automation, and smart software solutions.
               </p>
             </div>
@@ -617,8 +612,7 @@ const Homepage: React.FC = () => {
 
               <Button
                 size="lg"
-                className="w-full sm:w-auto text-white px-8 py-3 transition-all duration-200 hover:scale-105 bg-[#0078B7]"
-                style={{ fontFamily: 'Inter', fontSize: '18px', fontWeight: 200 }}
+                className="w-full sm:w-auto text-white px-8 py-3 transition-all duration-200 hover:scale-105 bg-[#0078B7] text-base"
                 onClick={() => (window.location.href = "/Contact")}
               >
                 Get a Free Consultation
@@ -631,8 +625,7 @@ const Homepage: React.FC = () => {
                       <Button
                         size="lg"
                         variant="outline"
-                        className="w-full sm:w-auto border-white text-white px-8 py-3 transition-all duration-200 hover:scale-105 bg-transparent"
-                        style={{ fontFamily: "Inter", fontSize: "18px", fontWeight: 200 }}
+                        className="w-full sm:w-auto border-white text-white px-8 py-3 transition-all duration-200 hover:scale-105 bg-transparent text-base"
                         onClick={() =>
                           window.open("https://beltech-erp.blsglob.com/", "_blank")
                         }
@@ -645,11 +638,11 @@ const Homepage: React.FC = () => {
                         sideOffset={4}
                         className="absolute left-1/2 -translate-x-1/2 bg-gray-900 border border-gray-800 rounded-lg p-3 text-sm text-white shadow-md w-max text-left"
                       >
-                        <p className="mb-1">Use the demo credentials below:</p>
-                        <p className="mb-1">
+                        <p className="mb-1 text-sm">Use the demo credentials below:</p>
+                        <p className="mb-1 text-sm">
                           Username: <strong>erp-demo</strong>
                         </p>
-                        <p>
+                        <p className="text-sm">
                           Password: <strong>erp-demo</strong>
                         </p>
                       </TooltipContent>
@@ -662,8 +655,7 @@ const Homepage: React.FC = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="w-full sm:w-auto border-white text-white px-8 py-3 transition-all duration-200 hover:scale-105 bg-transparent"
-                style={{ fontFamily: 'Inter', fontSize: '18px', fontWeight: 200 }}
+                className="w-full sm:w-auto border-white text-white px-8 py-3 transition-all duration-200 hover:scale-105 bg-transparent text-base"
                 onClick={() => (window.location.href = "/Contact")}
               >
                 Book a Demo
@@ -679,10 +671,10 @@ const Homepage: React.FC = () => {
         <section id="solutions-section" className="py-10 bg-[#f7f8fa]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="mb-4" style={{ fontFamily: 'Inter', fontSize: '36px', fontWeight: 700 }}>
-                Our Solutions
-              </h2>
-              <p className="text-lg font-normal text-black max-w-3xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <span className="text-[#0078B7]">Our</span> Solutions
+          </h2>
+              <p className="text-lg text-black max-w-3xl mx-auto">
                 We provide comprehensive digital transformation solutions that
                 help African businesses thrive in the modern economy.
               </p>
@@ -691,18 +683,18 @@ const Homepage: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 
               <div className="bg-white rounded-2xl overflow-hidden shadow-md shadow-gray-200/50 hover:shadow-xl transition-all duration-300">
-                <div className="w-full h-65 overflow-hidden">
-                  <img
-                    src={odooErp}
-                    alt="Odoo ERP Implementation"
-                    className="w-full h-full object-cover rounded-t-2xl"
+               <div className="w-full h-65 overflow-hidden">
+                    <img
+                      src={odooErp}
+                     alt="Odoo ERP Implementation"
+                      className="w-full h-full object-contain rounded-t-2xl"
                   />
-                </div>
+                  </div>
                 <div className="p-8">
-                  <h3 className="mb-3" style={{ fontFamily: 'Inter', fontSize: '21px', fontWeight: 800 }}>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                      ERP Implementation
                   </h3>
-                  <p className="mb-6" style={{ fontFamily: 'Inter', fontSize: '16px', fontWeight: 400 }}>
+                  <p className="text-base text-gray-600 mb-6">
                     A tailored Odoo & ERPNext system to
                     streamline your entire workflow and
                     gain real-time insights.
@@ -710,7 +702,7 @@ const Homepage: React.FC = () => {
                   </p>
                   <a
                     onClick={() => (window.location.href = "/Services")}
-                    className="text-[#0078B7] font-bold flex items-center space-x-2 hover:underline cursor-pointer"
+                    className="text-[#0078B7] font-bold flex items-center space-x-2 hover:underline cursor-pointer text-base"
                   >
                     <span>Learn More</span>
                   </a>
@@ -726,10 +718,10 @@ const Homepage: React.FC = () => {
                   />
                 </div>
                 <div className="p-8">
-                  <h3 className="mb-3" style={{ fontFamily: 'Inter', fontSize: '21px', fontWeight: 800 }}>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Automation & Integration
                   </h3>
-                  <p className="mb-6" style={{ fontFamily: 'Inter', fontSize: '16px', fontWeight: 400 }}>
+                  <p className="text-base text-gray-600 mb-6">
                     Automation workflows that reduce
                     errors, cut down on costs, and free your
                     team's time.
@@ -737,7 +729,7 @@ const Homepage: React.FC = () => {
                   </p>
                   <a
                     onClick={() => (window.location.href = "/Services")}
-                    className="text-[#0078B7] font-bold flex items-center space-x-2 hover:underline cursor-pointer"
+                    className="text-[#0078B7] font-bold flex items-center space-x-2 hover:underline cursor-pointer text-base"
                   >
                     <span>Learn More</span>
                   </a>
@@ -753,10 +745,10 @@ const Homepage: React.FC = () => {
                   />
                 </div>
                 <div className="p-8">
-                  <h3 className="mb-3 whitespace-nowrap" style={{ fontFamily: 'Inter', fontSize: '21px', fontWeight: 800 }}>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 whitespace-nowrap">
                     Custom Software Development
                   </h3>
-                  <p className="mb-6" style={{ fontFamily: 'Inter', fontSize: '16px', fontWeight: 400 }}>
+                  <p className="text-base text-gray-600 mb-6">
                     Web and mobile applications designed
                     to enhance your operations and solve
                     specific challenges.
@@ -764,7 +756,7 @@ const Homepage: React.FC = () => {
                   </p>
                   <a
                     onClick={() => (window.location.href = "/Services")}
-                    className="text-[#0078B7] font-bold flex items-center space-x-2 hover:underline cursor-pointer"
+                    className="text-[#0078B7] font-bold flex items-center space-x-2 hover:underline cursor-pointer text-base"
                   >
                     <span>Learn More</span>
                   </a>
@@ -779,8 +771,10 @@ const Homepage: React.FC = () => {
         <section className="py-10 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">BelTech Impact</h2>
-              <p className="text-xl font-normal text-black max-w-3xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <span className="text-[#0078B7]">BelTech</span> Impact
+          </h2>
+              <p className="text-lg text-black max-w-3xl mx-auto">
                 We combine technical expertise with deep understanding of African business needs to deliver exceptional results.
               </p>
             </div>
@@ -800,8 +794,8 @@ const Homepage: React.FC = () => {
                     <IconWrapper icon={<Award className="w-5 h-5" />} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-black mb-2">ERP experts</h3>
-                    <p className="text-base font-normal text-black">
+                    <h3 className="text-lg font-bold text-black mb-2">ERP experts</h3>
+                    <p className="text-base text-black">
                       Our team has deep expertise in Odoo and ERPNext, with extensive experience in ERP implementation.
                     </p>
                   </div>
@@ -814,8 +808,8 @@ const Homepage: React.FC = () => {
                     <IconWrapper icon={<Globe className="w-5 h-5" />} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-black mb-2">Real-world African business focus</h3>
-                    <p className="text-base font-normal text-black">
+                    <h3 className="text-lg font-bold text-black mb-2">Real-world African business focus</h3>
+                    <p className="text-base text-black">
                       We understand the unique challenges and opportunities of African markets.
                     </p>
                   </div>
@@ -828,8 +822,8 @@ const Homepage: React.FC = () => {
                     <IconWrapper icon={<Zap className="w-5 h-5" />} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-black mb-2">Open-source innovation at your service</h3>
-                    <p className="text-base font-normal text-black">
+                    <h3 className="text-lg font-bold text-black mb-2">Open-source innovation at your service</h3>
+                    <p className="text-base text-black">
                       Leveraging the power of open-source technology for maximum flexibility and value.
                     </p>
                   </div>
@@ -842,8 +836,8 @@ const Homepage: React.FC = () => {
                     <IconWrapper icon={<DollarSign className="w-5 h-5" />} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-black mb-2">Agile, scalable, and cost-effective</h3>
-                    <p className="text-base font-normal text-black">
+                    <h3 className="text-lg font-bold text-black mb-2">Agile, scalable, and cost-effective</h3>
+                    <p className="text-base text-black">
                       Solutions that grow with your business while maintaining cost efficiency.
                     </p>
                   </div>
@@ -859,8 +853,10 @@ const Homepage: React.FC = () => {
         <section className="py-10 bg-[#f7f8fa]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Products</h2>
-              <p className="text-xl font-normal text-black max-w-3xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <span className="text-[#0078B7]">Our</span> Products
+          </h2>
+              <p className="text-lg text-black max-w-3xl mx-auto">
                 Explore our flagship products built to streamline operations and deliver value.
               </p>
             </div>
@@ -871,8 +867,8 @@ const Homepage: React.FC = () => {
                   <img src={school} alt="360School" className="w-full h-full object-cover scale-150" />
                 </div>
                 <div className="p-6">
-                  <h3 className="mb-3" style={{ fontFamily: 'Inter', fontSize: '21px', fontWeight: 800 }}>School360</h3>
-                  <p className="mb-6" style={{ fontFamily: 'Inter', fontSize: '16px', fontWeight: 400 }}>A comprehensive school management platform for administration, attendance, exams, fees, and parent communication.</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">School360</h3>
+                  <p className="text-base text-gray-600 mb-6">A comprehensive school management platform for administration, attendance, exams, fees, and parent communication.</p>
                 </div>
               </div>
 
@@ -881,8 +877,8 @@ const Homepage: React.FC = () => {
                   <img src={kiray} alt="Kiray" className="w-full h-full object-cover" />
                 </div>
                 <div className="p-6">
-                  <h3 className="mb-3" style={{ fontFamily: 'Inter', fontSize: '21px', fontWeight: 800 }}>Kiray+</h3>
-                  <p className="mb-6" style={{ fontFamily: 'Inter', fontSize: '16px', fontWeight: 400 }}>Rental and asset management tools for homes and machinery — listings, leases, tracking, and payments.</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">Kiray+</h3>
+                  <p className="text-base text-gray-600 mb-6">Rental and asset management tools for homes and machinery — listings, leases, tracking, and payments.</p>
                 </div>
               </div>
 
@@ -891,8 +887,8 @@ const Homepage: React.FC = () => {
                   <img src={care} alt="Care Cental" className="w-full h-full object-cover" />
                 </div>
                 <div className="p-6">
-                  <h3 className="mb-3" style={{ fontFamily: 'Inter', fontSize: '21px', fontWeight: 800 }}>CareCental</h3>
-                  <p className="mb-6" style={{ fontFamily: 'Inter', fontSize: '16px', fontWeight: 400 }}>A comprehensive healthcare management platform — appointments, records, treatments, and billing.</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">CareCental</h3>
+                  <p className="text-base text-gray-600 mb-6">A comprehensive healthcare management platform — appointments, records, treatments, and billing.</p>
                 </div>
               </div>
             </div>
@@ -904,9 +900,9 @@ const Homepage: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-               Why Odoo?
+              <span className="text-[#0078B7]">Why</span> Odoo
              </h2>
-              <p className="text-xl font-normal text-black max-w-3xl mx-auto">
+              <p className="text-lg text-black max-w-3xl mx-auto">
                  Odoo is the world's most popular open-source ERP system, trusted by millions of businesses worldwide.
                   </p>
             </div>
@@ -921,7 +917,7 @@ const Homepage: React.FC = () => {
                     <h3 className="text-lg font-bold text-gray-900 mb-1">
                       All-in-One Solution
                     </h3>
-                    <p className="text-base font-normal text-gray-700">
+                    <p className="text-base text-gray-700">
                       Manage sales, inventory, accounting, HR, and more from a
                       single platform.
                     </p>
@@ -934,7 +930,7 @@ const Homepage: React.FC = () => {
                     <h3 className="text-lg font-bold text-gray-900 mb-1">
                       User-Friendly Interface
                     </h3>
-                    <p className="text-base font-normal text-gray-700">
+                    <p className="text-base text-gray-700">
                       Empower your team with an intuitive interface that is
                       easy to navigate.
                     </p>
@@ -947,7 +943,7 @@ const Homepage: React.FC = () => {
                     <h3 className="text-lg font-bold text-gray-900 mb-1">
                       Modular Architecture
                     </h3>
-                    <p className="text-base font-normal text-gray-700">
+                    <p className="text-base text-gray-700">
                       Start with what you need and add modules as your business grows.
                     </p>
                   </div>
@@ -959,7 +955,7 @@ const Homepage: React.FC = () => {
                     <h3 className="text-lg font-bold text-gray-900 mb-1">
                       Scalable Growth
                     </h3>
-                    <p className="text-base font-normal text-gray-700">
+                    <p className="text-base text-gray-700">
                       Handle more tasks with the same or fewer human resources
                       as your business grows.
                     </p>
@@ -999,10 +995,10 @@ const Homepage: React.FC = () => {
               transition={{ duration: 0.5 }}
               className="text-center mb-16"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Industries We Serve
-              </h2>
-              <p className="text-xl font-normal text-black max-w-3xl mx-auto">
+             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <span className="text-[#0078B7]">Industries</span> We Serve
+          </h2>
+              <p className="text-lg text-black max-w-3xl mx-auto">
                 We automate business operations so you stop managing chaos and start managing growth.
               </p>
             </motion.div>
@@ -1015,9 +1011,9 @@ const Homepage: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Our Packages
-              </h2>
-              <p className="text-xl font-normal text-black max-w-3xl mx-auto">
+            <span className="text-[#0078B7]">Our</span> Packages
+          </h2>
+              <p className="text-lg text-black max-w-3xl mx-auto">
                 Pick the right ERP package designed for your business size and growth goals.
               </p>
             </div>
@@ -1061,7 +1057,7 @@ const Homepage: React.FC = () => {
 
                   <Button
                     size="lg"
-                    className="w-full text-white bg-[#0078B7] hover:bg-[#005C8A] transition-all duration-200 font-semibold"
+                    className="w-full text-white bg-[#0078B7] hover:bg-[#005C8A] transition-all duration-200 font-semibold text-base"
                     onClick={() => (window.location.href = "/contact")}
                   >
                     Get Started
@@ -1112,7 +1108,7 @@ const Homepage: React.FC = () => {
 
                   <Button
                     size="lg"
-                    className="w-full bg-white text-[#0078B7] hover:bg-gray-50 transition-all duration-200 font-semibold"
+                    className="w-full bg-white text-[#0078B7] hover:bg-gray-50 transition-all duration-200 font-semibold text-base"
                     onClick={() => (window.location.href = "/contact")}
                   >
                     Request a Demo
@@ -1159,7 +1155,7 @@ const Homepage: React.FC = () => {
 
                   <Button
                     size="lg"
-                    className="w-full text-white bg-[#0078B7] hover:bg-[#005C8A] transition-all duration-200 font-semibold"
+                    className="w-full text-white bg-[#0078B7] hover:bg-[#005C8A] transition-all duration-200 font-semibold text-base"
                     onClick={() => (window.location.href = "/contact")}
                   >
                     Contact Sales
@@ -1175,10 +1171,10 @@ const Homepage: React.FC = () => {
         <section className="py-8 bg-white relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Our Happy Clients
-              </h2>
-              <p className="text-xl font-normal text-black max-w-3xl mx-auto">
+             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <span className="text-[#0078B7]">Our</span> Happy Clients
+          </h2>
+              <p className="text-lg text-black max-w-3xl mx-auto">
                 See what our clients say about their digital transformation journey with BelTech Solutions.
               </p>
             </div>
@@ -1234,7 +1230,7 @@ const Homepage: React.FC = () => {
                 w-64 max-w-xs bg-white shadow-lg rounded-lg 
                 p-4 text-center z-50 pointer-events-none"
                       >
-                        <p className="text-base font-normal text-black whitespace-normal break-words line-clamp-2">
+                        <p className="text-base text-black whitespace-normal break-words line-clamp-2">
                           "{client.testimonial}"
                         </p>
                       </div>
@@ -1300,21 +1296,21 @@ const Homepage: React.FC = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Ready to Transform Your Business?
             </h2>
-            <p className="text-xl font-normal mb-8 max-w-3xl mx-auto">
+            <p className="text-lg mb-8 max-w-3xl mx-auto">
               Join hundreds of African businesses that have streamlined their
               operations with BelTech Solutions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
-                className="px-8 py-3 text-lg transition-all duration-200 hover:scale-105 bg-[#0078B7]  text-white hover:bg-[#005C8A]"
+                className="px-8 py-3 transition-all duration-200 hover:scale-105 bg-[#0078B7] text-white hover:bg-[#005C8A] text-base"
                 onClick={() => (window.location.href = "/contact")}
               >
                 Start Your Digital Journey
               </Button>
               <Button
                 size="lg"
-                className="px-8 py-3 text-lg transition-all duration-200 hover:scale-105 bg-[#0078B7]  text-white hover:bg-[#005C8A]"
+                className="px-8 py-3 transition-all duration-200 hover:scale-105 bg-[#0078B7] text-white hover:bg-[#005C8A] text-base"
                 onClick={() => (window.location.href = "/solutions")}
               >
                 View Success Stories

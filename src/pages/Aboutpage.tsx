@@ -123,7 +123,7 @@ const About = () => {
                                     <h3 className="ml-4 text-2xl font-bold text-gray-900">Our Vision</h3>
                                 </div>
                                 <p className="text-sm font-medium text-gray-900">
-                                    "To be the #1 partner for ERP, automation, and software development in Africa by 2030."
+                                    "To be the #1 partner for ERP, automation, and software in Africa by 2030."
                                 </p>
                                 <p className="mt-4 text-gray-900">
                                     We aim to lead the digital transformation of African businesses by providing innovative, reliable, and accessible technology solutions that drive growth and efficiency.
@@ -211,7 +211,7 @@ const About = () => {
                                     </div>
                                     <CardTitle className="mt-4">Progress</CardTitle>
                                     <CardDescription>
-                                        Continuously implementing improvements and pushing the boundaries of technology.
+                                        Continuously improving and pushing the boundaries of technology.
                                     </CardDescription>
                                 </CardHeader>
                             </Card>

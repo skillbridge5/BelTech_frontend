@@ -82,7 +82,7 @@ const SolutionsPage = () => {
     </div>
     <div className="px-6 pb-6">
       <p className="text-base font-normal text-gray-700 leading-relaxed">
-        Deployed a full-scale Odoo ERP to manage production, sales, inventory, and logistics.
+        Deployed a full-scale ERP solution using ERPNext and Odoo to streamline production, sales, inventory, and logistics.
       </p>
       <Link
         to="/ERPDetail"
@@ -107,7 +107,7 @@ const SolutionsPage = () => {
     />
     <div className="px-6 pt-4 pb-3">
       <h3 className="text-xl font-bold leading-snug mb-1">
-        Website for SkillBridge Institute Of Technology
+        Website for SkillBridge Institute
       </h3>
     </div>
     <div className="px-6 pb-6">
@@ -142,7 +142,7 @@ const SolutionsPage = () => {
     </div>
     <div className="px-6 pb-6">
       <p className="text-base font-normal text-gray-700 leading-relaxed">
-       Built custom software with tailored features, secure workflows, and automated reporting feature
+       Built a custom platform with secure workflows, tailored features, and automated reporting.
          </p>
       <Link
         to="/RetailAuto"
